@@ -1,0 +1,934 @@
+<html>
+<head>
+<title>Main.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bababa;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+.s5 { color: #cf8e6d;}
+.s6 { color: #56a8f5;}
+.s7 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;en&quot; </span><span class="s2">class</span><span class="s3">=&quot;h-full&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;head&gt;</span>
+  <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;viewport&quot; </span><span class="s2">content</span><span class="s3">=&quot;width=device-width, initial-scale=1.0&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;title&gt;</span><span class="s1">Elevate - Your Personal Habit Tracker</span><span class="s0">&lt;/title&gt;</span>
+  <span class="s0">&lt;base </span><span class="s2">target</span><span class="s3">=&quot;_self&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;icon&quot; </span><span class="s2">href</span><span class="s3">=&quot;data:,&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;https://cdn.tailwindcss.com&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+  <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;style&gt;</span>
+    <span class="s1">.</span><span class="s0">fade-in </span><span class="s1">{</span>
+      <span class="s2">animation</span><span class="s1">: </span><span class="s0">fadeIn </span><span class="s4">0.5</span><span class="s3">s ease-in-out</span><span class="s1">;</span>
+    <span class="s1">}</span>
+    <span class="s5">@keyframes </span><span class="s0">fadeIn </span><span class="s1">{</span>
+      <span class="s0">from </span><span class="s1">{ </span><span class="s2">opacity</span><span class="s1">: </span><span class="s4">0</span><span class="s1">; </span><span class="s2">transform</span><span class="s1">: </span><span class="s0">translateY</span><span class="s1">(</span><span class="s4">20</span><span class="s3">px</span><span class="s1">); }</span>
+      <span class="s0">to </span><span class="s1">{ </span><span class="s2">opacity</span><span class="s1">: </span><span class="s4">1</span><span class="s1">; </span><span class="s2">transform</span><span class="s1">: </span><span class="s0">translateY</span><span class="s1">(</span><span class="s4">0</span><span class="s1">); }</span>
+    <span class="s1">}</span>
+    <span class="s1">.</span><span class="s0">auth-container</span><span class="s1">, .</span><span class="s0">main-container </span><span class="s1">{</span>
+      <span class="s2">background</span><span class="s1">: </span><span class="s0">linear-gradient</span><span class="s1">(</span><span class="s4">135</span><span class="s3">deg</span><span class="s1">, </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">249</span><span class="s1">, </span><span class="s4">250</span><span class="s1">, </span><span class="s4">251</span><span class="s1">, </span><span class="s4">0.1</span><span class="s1">) </span><span class="s4">0</span><span class="s1">%, </span><span class="s0">rgba</span><span class="s1">(</span><span class="s4">229</span><span class="s1">, </span><span class="s4">231</span><span class="s1">, </span><span class="s4">235</span><span class="s1">, </span><span class="s4">0.1</span><span class="s1">) </span><span class="s4">100</span><span class="s1">%);</span>
+      <span class="s2">backdrop-filter</span><span class="s1">: </span><span class="s0">blur</span><span class="s1">(</span><span class="s4">10</span><span class="s3">px</span><span class="s1">);</span>
+    <span class="s1">}</span>
+    <span class="s1">.</span><span class="s0">btn-primary </span><span class="s1">{</span>
+      <span class="s2">background</span><span class="s1">: </span><span class="s0">linear-gradient</span><span class="s1">(</span><span class="s4">135</span><span class="s3">deg</span><span class="s1">, </span><span class="s6">#14b8a6 </span><span class="s4">0</span><span class="s1">%, </span><span class="s6">#3b82f6 </span><span class="s4">100</span><span class="s1">%);</span>
+    <span class="s1">}</span>
+    <span class="s1">.</span><span class="s0">btn-primary</span><span class="s1">:</span><span class="s0">hover </span><span class="s1">{</span>
+      <span class="s2">background</span><span class="s1">: </span><span class="s0">linear-gradient</span><span class="s1">(</span><span class="s4">135</span><span class="s3">deg</span><span class="s1">, </span><span class="s6">#0d9488 </span><span class="s4">0</span><span class="s1">%, </span><span class="s6">#2563eb </span><span class="s4">100</span><span class="s1">%);</span>
+    <span class="s1">}</span>
+    <span class="s1">.</span><span class="s0">no-scrollbar</span><span class="s1">::</span><span class="s0">-webkit-scrollbar </span><span class="s1">{</span>
+      <span class="s2">display</span><span class="s1">: </span><span class="s3">none</span><span class="s1">;</span>
+    <span class="s1">}</span>
+    <span class="s1">.</span><span class="s0">no-scrollbar </span><span class="s1">{</span>
+      <span class="s2">-ms-overflow-style</span><span class="s1">: </span><span class="s3">none</span><span class="s1">;</span>
+      <span class="s2">scrollbar-width</span><span class="s1">: </span><span class="s3">none</span><span class="s1">;</span>
+    <span class="s1">}</span>
+  <span class="s0">&lt;/style&gt;</span>
+<span class="s0">&lt;/head&gt;</span>
+<span class="s0">&lt;body </span><span class="s2">class</span><span class="s3">=&quot;bg-gray-100 dark:bg-gray-900 min-h-full font-sans antialiased text-gray-800 dark:text-gray-200&quot;</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;appContainer&quot; </span><span class="s2">class</span><span class="s3">=&quot;container mx-auto px-4 py-8 flex items-center justify-center min-h-screen&quot;</span><span class="s0">&gt;</span>
+
+  <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;startFrame&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full max-w-md mx-auto fade-in&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;auth-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;text-center mb-8&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;h1 </span><span class="s2">class</span><span class="s3">=&quot;text-4xl font-extrabold text-gray-900 dark:text-white mb-2&quot;</span><span class="s0">&gt;</span><span class="s1">Elevate</span><span class="s0">&lt;/h1&gt;</span>
+        <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-gray-600 dark:text-gray-400&quot;</span><span class="s0">&gt;</span><span class="s1">Your Personal Habit Tracker</span><span class="s0">&lt;/p&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+      <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-center text-gray-700 dark:text-gray-300 mb-8&quot;</span><span class="s0">&gt;</span>
+        <span class="s1">Stay on track with daily habits, get tailored feedback, and build lasting streaks. Your journey, your pace. Let’s grow together!</span>
+      <span class="s0">&lt;/p&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;space-y-4&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;loginBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full btn-primary text-white py-3 px-4 rounded-lg font-semibold shadow-md transition-transform transform hover:scale-105&quot;</span><span class="s0">&gt;</span><span class="s1">Login</span><span class="s0">&lt;/button&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;registerBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 px-4 rounded-lg font-semibold border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-transform transform hover:scale-105 shadow-md&quot;</span><span class="s0">&gt;</span><span class="s1">Register</span><span class="s0">&lt;/button&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;guestBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full text-center text-sm text-teal-600 dark:text-teal-400 hover:underline mt-2&quot;</span><span class="s0">&gt;</span><span class="s1">Try as Guest</span><span class="s0">&lt;/button&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/div&gt;</span>
+
+  <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;loginFrame&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full max-w-md mx-auto hidden fade-in&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;auth-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;h2 </span><span class="s2">class</span><span class="s3">=&quot;text-2xl font-bold text-center mb-6 text-gray-900 dark:text-white&quot;</span><span class="s0">&gt;</span><span class="s1">Login</span><span class="s0">&lt;/h2&gt;</span>
+      <span class="s0">&lt;form </span><span class="s2">id</span><span class="s3">=&quot;loginForm&quot; </span><span class="s2">class</span><span class="s3">=&quot;space-y-4&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+          <span class="s0">&lt;label </span><span class="s2">for</span><span class="s3">=&quot;loginUsername&quot; </span><span class="s2">class</span><span class="s3">=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;</span><span class="s0">&gt;</span><span class="s1">Username</span><span class="s0">&lt;/label&gt;</span>
+          <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;text&quot; </span><span class="s2">id</span><span class="s3">=&quot;loginUsername&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white&quot; </span><span class="s2">required</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+          <span class="s0">&lt;label </span><span class="s2">for</span><span class="s3">=&quot;loginPassword&quot; </span><span class="s2">class</span><span class="s3">=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1&quot;</span><span class="s0">&gt;</span><span class="s1">Password</span><span class="s0">&lt;/label&gt;</span>
+          <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;password&quot; </span><span class="s2">id</span><span class="s3">=&quot;loginPassword&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white&quot; </span><span class="s2">required</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;loginError&quot; </span><span class="s2">class</span><span class="s3">=&quot;hidden text-sm text-red-500 text-center&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">type</span><span class="s3">=&quot;submit&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full btn-primary text-white py-3 rounded-lg font-semibold transition-transform transform hover:scale-105&quot;</span><span class="s0">&gt;</span><span class="s1">Enter</span><span class="s0">&lt;/button&gt;</span>
+      <span class="s0">&lt;/form&gt;</span>
+      <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;backToStartFromLogin&quot; </span><span class="s2">class</span><span class="s3">=&quot;mt-4 w-full text-center text-sm text-teal-600 dark:text-teal-400 hover:underline&quot;</span><span class="s0">&gt;</span><span class="s1">Back to Start</span><span class="s0">&lt;/button&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/div&gt;</span>
+
+  <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;registerFrame&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full max-w-md mx-auto hidden fade-in&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;auth-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;h2 </span><span class="s2">class</span><span class="s3">=&quot;text-2xl font-bold text-center mb-6 text-gray-900 dark:text-white&quot;</span><span class="s0">&gt;</span><span class="s1">Register</span><span class="s0">&lt;/h2&gt;</span>
+      <span class="s0">&lt;form </span><span class="s2">id</span><span class="s3">=&quot;registerForm&quot; </span><span class="s2">class</span><span class="s3">=&quot;space-y-4&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;grid grid-cols-2 gap-4&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;text&quot; </span><span class="s2">id</span><span class="s3">=&quot;registerFirstName&quot; </span><span class="s2">placeholder</span><span class="s3">=&quot;First Name&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white&quot; </span><span class="s2">required</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;text&quot; </span><span class="s2">id</span><span class="s3">=&quot;registerLastName&quot; </span><span class="s2">placeholder</span><span class="s3">=&quot;Last Name&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white&quot; </span><span class="s2">required</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;text&quot; </span><span class="s2">id</span><span class="s3">=&quot;registerUsername&quot; </span><span class="s2">placeholder</span><span class="s3">=&quot;Username&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white&quot; </span><span class="s2">required</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;usernameError&quot; </span><span class="s2">class</span><span class="s3">=&quot;hidden text-sm text-red-500&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+        <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;password&quot; </span><span class="s2">id</span><span class="s3">=&quot;registerPassword&quot; </span><span class="s2">placeholder</span><span class="s3">=&quot;Password&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white&quot; </span><span class="s2">required</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-xs text-gray-500 dark:text-gray-400&quot;</span><span class="s0">&gt;</span><span class="s1">8+ characters, with numbers &amp; special characters.</span><span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;password&quot; </span><span class="s2">id</span><span class="s3">=&quot;registerConfirmPassword&quot; </span><span class="s2">placeholder</span><span class="s3">=&quot;Confirm Password&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white&quot; </span><span class="s2">required</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;passwordError&quot; </span><span class="s2">class</span><span class="s3">=&quot;hidden text-sm text-red-500&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">type</span><span class="s3">=&quot;submit&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full btn-primary text-white py-3 rounded-lg font-semibold transition-transform transform hover:scale-105&quot;</span><span class="s0">&gt;</span><span class="s1">Register</span><span class="s0">&lt;/button&gt;</span>
+      <span class="s0">&lt;/form&gt;</span>
+      <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;backToStartFromRegister&quot; </span><span class="s2">class</span><span class="s3">=&quot;mt-4 w-full text-center text-sm text-teal-600 dark:text-teal-400 hover:underline&quot;</span><span class="s0">&gt;</span><span class="s1">Back to Start</span><span class="s0">&lt;/button&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/div&gt;</span>
+
+  <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;habitCollectionFrame&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full max-w-2xl mx-auto hidden fade-in&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;main-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;h2 </span><span class="s2">class</span><span class="s3">=&quot;text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white&quot;</span><span class="s0">&gt;</span><span class="s1">Let's Set Your Habits</span><span class="s0">&lt;/h2&gt;</span>
+      <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-center text-gray-600 dark:text-gray-400 mb-8&quot;</span><span class="s0">&gt;</span><span class="s1">Which habits would you like to form or improve? We'll suggest more later!</span><span class="s0">&lt;/p&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;habitList&quot; </span><span class="s2">class</span><span class="s3">=&quot;space-y-3 mb-6 max-h-60 overflow-y-auto no-scrollbar&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;flex items-center gap-4 mb-8&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;text&quot; </span><span class="s2">id</span><span class="s3">=&quot;customHabitInput&quot; </span><span class="s2">placeholder</span><span class="s3">=&quot;Add a custom habit...&quot; </span><span class="s2">class</span><span class="s3">=&quot;flex-grow py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;addCustomHabitBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn-primary text-white py-2 px-6 rounded-lg font-semibold transition-transform transform hover:scale-105&quot;</span><span class="s0">&gt;</span><span class="s1">Add</span><span class="s0">&lt;/button&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+      <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;saveHabitsBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full btn-primary text-white py-3 rounded-lg font-semibold transition-transform transform hover:scale-105&quot;</span><span class="s0">&gt;</span><span class="s1">Save Habits &amp; Continue</span><span class="s0">&lt;/button&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/div&gt;</span>
+
+  <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;habitFrame&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full max-w-4xl mx-auto hidden fade-in&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;main-container p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;flex justify-between items-center mb-8&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;div&gt;</span>
+          <span class="s0">&lt;h1 </span><span class="s2">id</span><span class="s3">=&quot;welcomeMessage&quot; </span><span class="s2">class</span><span class="s3">=&quot;text-3xl font-bold text-gray-900 dark:text-white&quot;</span><span class="s0">&gt;</span><span class="s1">Habit Dashboard</span><span class="s0">&lt;/h1&gt;</span>
+          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-gray-600 dark:text-gray-400&quot;</span><span class="s0">&gt;</span><span class="s1">Keep up the great work!</span><span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;logoutBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;text-sm text-teal-600 dark:text-teal-400 hover:underline&quot;</span><span class="s0">&gt;</span><span class="s1">Logout</span><span class="s0">&lt;/button&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;mb-8&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;h2 </span><span class="s2">class</span><span class="s3">=&quot;text-2xl font-semibold mb-4 text-gray-900 dark:text-white&quot;</span><span class="s0">&gt;</span><span class="s1">Today's Habits</span><span class="s0">&lt;/h2&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;dailyHabitList&quot; </span><span class="s2">class</span><span class="s3">=&quot;space-y-3 max-h-72 overflow-y-auto no-scrollbar pr-2&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+
+      <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;recommendationSection&quot; </span><span class="s2">class</span><span class="s3">=&quot;mb-8 hidden&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;h2 </span><span class="s2">id</span><span class="s3">=&quot;recommendationTitle&quot; </span><span class="s2">class</span><span class="s3">=&quot;text-2xl font-semibold mb-4 text-gray-900 dark:text-white&quot;</span><span class="s0">&gt;</span><span class="s1">Suggestions for You</span><span class="s0">&lt;/h2&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;recommendationList&quot; </span><span class="s2">class</span><span class="s3">=&quot;grid grid-cols-1 md:grid-cols-2 gap-3&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;mb-8&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;h2 </span><span class="s2">class</span><span class="s3">=&quot;text-2xl font-semibold mb-4 text-gray-900 dark:text-white&quot;</span><span class="s0">&gt;</span><span class="s1">Your Goals</span><span class="s0">&lt;/h2&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;goalList&quot; </span><span class="s2">class</span><span class="s3">=&quot;grid grid-cols-1 md:grid-cols-2 gap-4&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+
+      <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;quoteContainer&quot; </span><span class="s2">class</span><span class="s3">=&quot;hidden bg-teal-50 dark:bg-teal-900/20 p-4 rounded-lg mb-6 text-center italic&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;p </span><span class="s2">id</span><span class="s3">=&quot;quoteText&quot; </span><span class="s2">class</span><span class="s3">=&quot;text-teal-800 dark:text-teal-200&quot;</span><span class="s0">&gt;&lt;/p&gt;</span>
+        <span class="s0">&lt;p </span><span class="s2">id</span><span class="s3">=&quot;quoteAuthor&quot; </span><span class="s2">class</span><span class="s3">=&quot;text-sm text-teal-600 dark:text-teal-400 mt-1&quot;</span><span class="s0">&gt;&lt;/p&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;flex flex-col sm:flex-row gap-4&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;habitConfigBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;flex-1 bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 px-4 rounded-lg font-semibold border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-transform transform hover:scale-105 shadow-sm&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fas fa-cog mr-2&quot;</span><span class="s0">&gt;&lt;/i&gt;</span><span class="s1">Configure Habits</span>
+        <span class="s0">&lt;/button&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;goalConfigBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;flex-1 bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 px-4 rounded-lg font-semibold border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-transform transform hover:scale-105 shadow-sm&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fas fa-bullseye mr-2&quot;</span><span class="s0">&gt;&lt;/i&gt;</span><span class="s1">Set Goals</span>
+        <span class="s0">&lt;/button&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;routineConfigBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;flex-1 bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 px-4 rounded-lg font-semibold border&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fas fa-stream mr-2&quot;</span><span class="s0">&gt;&lt;/i&gt;</span><span class="s1">Manage Routines</span>
+        <span class="s0">&lt;/button&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/div&gt;</span>
+
+  <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;routineConfigFrame&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full max-w-3xl mx-auto hidden fade-in&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;main-container p-8 rounded-2xl shadow-xl&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;h2 </span><span class="s2">class</span><span class="s3">=&quot;text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white&quot;</span><span class="s0">&gt;</span><span class="s1">Manage Routines</span><span class="s0">&lt;/h2&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;routineListContainer&quot; </span><span class="s2">class</span><span class="s3">=&quot;space-y-6 mb-6 max-h-80 overflow-y-auto no-scrollbar pr-2&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;flex items-center gap-4 mb-8 pt-4 border-t border-gray-200 dark:border-gray-700&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;text&quot; </span><span class="s2">id</span><span class="s3">=&quot;newRoutineInput&quot; </span><span class="s2">placeholder</span><span class="s3">=&quot;Create new routine (e.g., Morning Routine)...&quot; </span><span class="s2">class</span><span class="s3">=&quot;flex-grow py-2 px-4 border rounded-lg dark:bg-gray-800&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;addNewRoutineBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn-primary text-white py-2 px-6 rounded-lg font-semibold&quot;</span><span class="s0">&gt;</span><span class="s1">Create</span><span class="s0">&lt;/button&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+      <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;backToDashboardFromRoutines&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full bg-white dark:bg-gray-800 py-3 rounded-lg font-semibold border&quot;</span><span class="s0">&gt;</span><span class="s1">Back to Dashboard</span><span class="s0">&lt;/button&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/div&gt;</span>
+
+  <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;habitConfigFrame&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full max-w-2xl mx-auto hidden fade-in&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;main-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;h2 </span><span class="s2">class</span><span class="s3">=&quot;text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white&quot;</span><span class="s0">&gt;</span><span class="s1">Habit Configuration</span><span class="s0">&lt;/h2&gt;</span>
+      <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-center text-gray-600 dark:text-gray-400 mb-8&quot;</span><span class="s0">&gt;</span><span class="s1">Add, remove, or edit your habits.</span><span class="s0">&lt;/p&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;configHabitList&quot; </span><span class="s2">class</span><span class="s3">=&quot;space-y-3 mb-6 max-h-60 overflow-y-auto no-scrollbar&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;flex items-center gap-4 mb-8&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;text&quot; </span><span class="s2">id</span><span class="s3">=&quot;newHabitInput&quot; </span><span class="s2">placeholder</span><span class="s3">=&quot;Add a new habit...&quot; </span><span class="s2">class</span><span class="s3">=&quot;flex-grow py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;addNewHabitBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn-primary text-white py-2 px-6 rounded-lg font-semibold transition-transform transform hover:scale-105&quot;</span><span class="s0">&gt;</span><span class="s1">Add</span><span class="s0">&lt;/button&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+      <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;backToDashboardBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 px-4 rounded-lg font-semibold border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-transform transform hover:scale-105 shadow-sm&quot;</span><span class="s0">&gt;</span><span class="s1">Back to Dashboard</span><span class="s0">&lt;/button&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/div&gt;</span>
+
+  <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;goalConfigFrame&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full max-w-2xl mx-auto hidden fade-in&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;main-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;h2 </span><span class="s2">class</span><span class="s3">=&quot;text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white&quot;</span><span class="s0">&gt;</span><span class="s1">Define Your Goals</span><span class="s0">&lt;/h2&gt;</span>
+      <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-center text-gray-600 dark:text-gray-400 mb-8&quot;</span><span class="s0">&gt;</span><span class="s1">Set a target for one of your habits.</span><span class="s0">&lt;/p&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;mb-6&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;label </span><span class="s2">class</span><span class="s3">=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2&quot;</span><span class="s0">&gt;</span><span class="s1">1. Choose a habit to set a goal for:</span><span class="s0">&lt;/label&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;goalHabitSelection&quot; </span><span class="s2">class</span><span class="s3">=&quot;space-y-2 max-h-40 overflow-y-auto no-scrollbar pr-2&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;mb-8&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;label </span><span class="s2">for</span><span class="s3">=&quot;goalTimelineSlider&quot; </span><span class="s2">class</span><span class="s3">=&quot;block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2&quot;</span><span class="s0">&gt;</span><span class="s1">2. How many days in a row? </span><span class="s0">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;goalTimelineValue&quot; </span><span class="s2">class</span><span class="s3">=&quot;font-bold text-teal-600 dark:text-teal-400&quot;</span><span class="s0">&gt;</span><span class="s1">7 days</span><span class="s0">&lt;/span&gt;&lt;/label&gt;</span>
+        <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;range&quot; </span><span class="s2">id</span><span class="s3">=&quot;goalTimelineSlider&quot; </span><span class="s2">min</span><span class="s3">=&quot;2&quot; </span><span class="s2">max</span><span class="s3">=&quot;30&quot; </span><span class="s2">value</span><span class="s3">=&quot;7&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-teal-500&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;flex flex-col sm:flex-row gap-4&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;saveGoalBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;flex-1 btn-primary text-white py-3 rounded-lg font-semibold transition-transform transform hover:scale-105&quot;</span><span class="s0">&gt;</span><span class="s1">Set Goal</span><span class="s0">&lt;/button&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;backToDashboardFromGoalBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;flex-1 bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 rounded-lg font-semibold border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-transform transform hover:scale-105&quot;</span><span class="s0">&gt;</span><span class="s1">Back to Dashboard</span><span class="s0">&lt;/button&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/div&gt;</span>
+
+  <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;notificationModal&quot; </span><span class="s2">class</span><span class="s3">=&quot;fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 p-4&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 max-w-sm w-full text-center fade-in&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;modalIconContainer&quot; </span><span class="s2">class</span><span class="s3">=&quot;mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/30 mb-4&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;i </span><span class="s2">id</span><span class="s3">=&quot;modalIcon&quot; </span><span class="s2">class</span><span class="s3">=&quot;fas fa-check-circle text-4xl text-green-500&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+      <span class="s0">&lt;h3 </span><span class="s2">id</span><span class="s3">=&quot;modalTitle&quot; </span><span class="s2">class</span><span class="s3">=&quot;text-2xl font-bold mb-2 text-gray-900 dark:text-white&quot;</span><span class="s0">&gt;</span><span class="s1">Success!</span><span class="s0">&lt;/h3&gt;</span>
+      <span class="s0">&lt;p </span><span class="s2">id</span><span class="s3">=&quot;modalMessage&quot; </span><span class="s2">class</span><span class="s3">=&quot;text-gray-600 dark:text-gray-400 mb-6&quot;</span><span class="s0">&gt;</span><span class="s1">Your action was completed successfully.</span><span class="s0">&lt;/p&gt;</span>
+      <span class="s0">&lt;button </span><span class="s2">id</span><span class="s3">=&quot;modalCloseBtn&quot; </span><span class="s2">class</span><span class="s3">=&quot;w-full btn-primary text-white py-2 rounded-lg font-semibold&quot;</span><span class="s0">&gt;</span><span class="s1">Close</span><span class="s0">&lt;/button&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/div&gt;</span>
+
+<span class="s0">&lt;/div&gt;</span>
+
+<span class="s0">&lt;script&gt;</span>
+  <span class="s1">document.addEventListener(</span><span class="s3">'DOMContentLoaded'</span><span class="s1">, () =&gt; {</span>
+
+    <span class="s5">let </span><span class="s1">userDatabase = JSON.parse(localStorage.getItem(</span><span class="s3">'userDatabase'</span><span class="s1">)) || [];</span>
+    <span class="s5">let </span><span class="s1">currentUser = JSON.parse(sessionStorage.getItem(</span><span class="s3">'currentUser'</span><span class="s1">)) || </span><span class="s5">null</span><span class="s1">;</span>
+    <span class="s5">let </span><span class="s1">currentSessionData = </span><span class="s5">null</span><span class="s1">;</span>
+
+
+    <span class="s5">const </span><span class="s1">frames = {</span>
+      <span class="s1">start: document.getElementById(</span><span class="s3">'startFrame'</span><span class="s1">),</span>
+      <span class="s1">login: document.getElementById(</span><span class="s3">'loginFrame'</span><span class="s1">),</span>
+      <span class="s1">register: document.getElementById(</span><span class="s3">'registerFrame'</span><span class="s1">),</span>
+      <span class="s1">habitCollection: document.getElementById(</span><span class="s3">'habitCollectionFrame'</span><span class="s1">),</span>
+      <span class="s1">habit: document.getElementById(</span><span class="s3">'habitFrame'</span><span class="s1">),</span>
+      <span class="s1">habitConfig: document.getElementById(</span><span class="s3">'habitConfigFrame'</span><span class="s1">),</span>
+      <span class="s1">goalConfig: document.getElementById(</span><span class="s3">'goalConfigFrame'</span><span class="s1">),</span>
+      <span class="s1">routineConfig: document.getElementById(</span><span class="s3">'routineConfigFrame'</span><span class="s1">)</span>
+    <span class="s1">};</span>
+    <span class="s5">const </span><span class="s1">loginForm = document.getElementById(</span><span class="s3">'loginForm'</span><span class="s1">);</span>
+    <span class="s5">const </span><span class="s1">registerForm = document.getElementById(</span><span class="s3">'registerForm'</span><span class="s1">);</span>
+    <span class="s5">const </span><span class="s1">notificationModal = document.getElementById(</span><span class="s3">'notificationModal'</span><span class="s1">);</span>
+
+
+    <span class="s5">function </span><span class="s1">showFrame(frameId) {</span>
+      <span class="s1">Object.values(frames).forEach(frame =&gt; frame &amp;&amp; frame.classList.add(</span><span class="s3">'hidden'</span><span class="s1">));</span>
+      <span class="s5">if </span><span class="s1">(frames[frameId]) frames[frameId].classList.remove(</span><span class="s3">'hidden'</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+
+    <span class="s5">function </span><span class="s1">init() {</span>
+      <span class="s5">if </span><span class="s1">(currentUser) {</span>
+        <span class="s5">const </span><span class="s1">userData = userDatabase.find(u =&gt; u.username === currentUser.username);</span>
+        <span class="s1">currentSessionData = userData;</span>
+        <span class="s5">if </span><span class="s1">(userData &amp;&amp; userData.habits &amp;&amp; userData.habits.length &gt; </span><span class="s4">0</span><span class="s1">) {</span>
+          <span class="s1">renderApp(userData);</span>
+          <span class="s1">showFrame(</span><span class="s3">'habit'</span><span class="s1">);</span>
+        <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+          <span class="s1">populateInitialHabitList();</span>
+          <span class="s1">showFrame(</span><span class="s3">'habitCollection'</span><span class="s1">);</span>
+        <span class="s1">}</span>
+      <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+        <span class="s1">showFrame(</span><span class="s3">'start'</span><span class="s1">);</span>
+      <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s7">// --- Event Listeners ---</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'loginBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; showFrame(</span><span class="s3">'login'</span><span class="s1">));</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'registerBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; showFrame(</span><span class="s3">'register'</span><span class="s1">));</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'guestBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, startGuestSession);</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'backToStartFromLogin'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; { showFrame(</span><span class="s3">'start'</span><span class="s1">); loginForm.reset(); });</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'backToStartFromRegister'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; { showFrame(</span><span class="s3">'start'</span><span class="s1">); registerForm.reset(); });</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'backToDashboardBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; {</span>
+      <span class="s1">renderApp(getCurrentUserData());</span>
+      <span class="s1">showFrame(</span><span class="s3">'habit'</span><span class="s1">);</span>
+    <span class="s1">});</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'backToDashboardBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, navigateToDashboard);</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'backToDashboardFromGoalBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, navigateToDashboard);</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'logoutBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, logout);</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'habitConfigBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; {</span>
+      <span class="s1">renderHabitConfig(currentSessionData.habits);</span>
+      <span class="s1">showFrame(</span><span class="s3">'habitConfig'</span><span class="s1">);</span>
+    <span class="s1">});</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'goalConfigBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; { renderGoalConfig(getCurrentUserData().habits, getCurrentUserData().goals); showFrame(</span><span class="s3">'goalConfig'</span><span class="s1">); });</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'modalCloseBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; notificationModal.classList.add(</span><span class="s3">'hidden'</span><span class="s1">));</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'routineConfigBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; { renderRoutineConfig(); showFrame(</span><span class="s3">'routineConfig'</span><span class="s1">); });</span>
+    <span class="s1">document.getElementById(</span><span class="s3">'backToDashboardFromRoutines'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, navigateToDashboard);</span>
+
+
+    <span class="s1">registerForm.addEventListener(</span><span class="s3">'submit'</span><span class="s1">, (e) =&gt; {</span>
+      <span class="s1">e.preventDefault();</span>
+      <span class="s5">const </span><span class="s1">username = document.getElementById(</span><span class="s3">'registerUsername'</span><span class="s1">).value.trim();</span>
+      <span class="s5">const </span><span class="s1">password = document.getElementById(</span><span class="s3">'registerPassword'</span><span class="s1">).value;</span>
+
+      <span class="s5">const </span><span class="s1">newUser = {</span>
+        <span class="s1">firstName: document.getElementById(</span><span class="s3">'registerFirstName'</span><span class="s1">).value.trim(),</span>
+        <span class="s1">lastName: document.getElementById(</span><span class="s3">'registerLastName'</span><span class="s1">).value.trim(),</span>
+        <span class="s1">username: username,</span>
+        <span class="s1">password: password,</span>
+        <span class="s1">habits: [],</span>
+        <span class="s1">goals: [],</span>
+        <span class="s1">routines: []</span>
+      <span class="s1">};</span>
+
+      <span class="s1">userDatabase.push(newUser);</span>
+      <span class="s1">saveDatabase();</span>
+      <span class="s1">alert(</span><span class="s3">`Registration successful, </span><span class="s1">${newUser.firstName}</span><span class="s3">! Please login.`</span><span class="s1">);</span>
+      <span class="s1">showFrame(</span><span class="s3">'login'</span><span class="s1">);</span>
+      <span class="s1">registerForm.reset();</span>
+    <span class="s1">});</span>
+
+
+    <span class="s1">loginForm.addEventListener(</span><span class="s3">'submit'</span><span class="s1">, (e) =&gt; {</span>
+      <span class="s1">e.preventDefault();</span>
+      <span class="s5">const </span><span class="s1">username = document.getElementById(</span><span class="s3">'loginUsername'</span><span class="s1">).value.trim();</span>
+      <span class="s5">const </span><span class="s1">password = document.getElementById(</span><span class="s3">'loginPassword'</span><span class="s1">).value;</span>
+      <span class="s5">const </span><span class="s1">user = userDatabase.find(u =&gt; u.username === username &amp;&amp; u.password === password);</span>
+
+      <span class="s5">if </span><span class="s1">(user) {</span>
+        <span class="s1">currentUser = user;</span>
+        <span class="s1">currentSessionData = user;</span>
+        <span class="s1">sessionStorage.setItem(</span><span class="s3">'currentUser'</span><span class="s1">, JSON.stringify(currentUser));</span>
+        <span class="s1">init();</span>
+      <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+        <span class="s1">alert(</span><span class="s3">&quot;Invalid username or password.&quot;</span><span class="s1">);</span>
+      <span class="s1">}</span>
+    <span class="s1">});</span>
+
+    <span class="s5">function </span><span class="s1">logout() {</span>
+      <span class="s1">currentUser = </span><span class="s5">null</span><span class="s1">;</span>
+      <span class="s1">sessionStorage.removeItem(</span><span class="s3">'currentUser'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">logoutBtn = document.getElementById(</span><span class="s3">'logoutBtn'</span><span class="s1">);</span>
+      <span class="s1">logoutBtn.textContent = </span><span class="s3">'Logout'</span><span class="s1">;</span>
+      <span class="s1">logoutBtn.onclick = logout;</span>
+      <span class="s1">showFrame(</span><span class="s3">'start'</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+
+    <span class="s5">function </span><span class="s1">startGuestSession() {</span>
+      <span class="s5">const </span><span class="s1">shuffled = categorizedHabits.sort(() =&gt; </span><span class="s4">0.5 </span><span class="s1">- Math.random());</span>
+      <span class="s5">const </span><span class="s1">guestHabits = shuffled.slice(</span><span class="s4">0</span><span class="s1">, </span><span class="s4">4</span><span class="s1">).map(habit =&gt; ({</span>
+        <span class="s1">id: </span><span class="s3">`guest-</span><span class="s1">${crypto.randomUUID()}</span><span class="s3">`</span><span class="s1">,</span>
+        <span class="s1">name: habit.name,</span>
+        <span class="s1">history: {},</span>
+        <span class="s1">streak: </span><span class="s4">0</span>
+      <span class="s1">}));</span>
+
+      <span class="s5">const </span><span class="s1">guestData = {</span>
+        <span class="s1">firstName: </span><span class="s3">&quot;Guest&quot;</span><span class="s1">,</span>
+        <span class="s1">habits: guestHabits,</span>
+        <span class="s1">goals: []</span>
+      <span class="s1">};</span>
+      <span class="s1">currentSessionData = guestData;</span>
+      <span class="s1">renderApp(guestData, </span><span class="s5">true</span><span class="s1">);</span>
+      <span class="s1">showFrame(</span><span class="s3">'habit'</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+
+    <span class="s5">const </span><span class="s1">categorizedHabits = [</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;Meditate&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Mindfulness&quot; </span><span class="s1">},</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;Write in a journal&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Mindfulness&quot; </span><span class="s1">},</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;Practice gratitude&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Mindfulness&quot; </span><span class="s1">},</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;Exercise for 30 minutes&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Health&quot; </span><span class="s1">},</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;Drink 8 glasses of water&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Health&quot; </span><span class="s1">},</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;Stretch for 10 minutes&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Health&quot; </span><span class="s1">},</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;Read 10 pages&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Learning&quot; </span><span class="s1">},</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;Practice a skill&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Learning&quot; </span><span class="s1">},</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;Learn a new word&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Learning&quot; </span><span class="s1">},</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;Plan your day&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Productivity&quot; </span><span class="s1">},</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;Tidy up your workspace&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Productivity&quot; </span><span class="s1">},</span>
+      <span class="s1">{ name: </span><span class="s3">&quot;No social media for 1 hour&quot;</span><span class="s1">, category: </span><span class="s3">&quot;Productivity&quot; </span><span class="s1">},</span>
+    <span class="s1">];</span>
+    <span class="s5">const </span><span class="s1">motivationalQuotes = [</span>
+      <span class="s1">{ text: </span><span class="s3">&quot;The secret of getting ahead is getting started.&quot;</span><span class="s1">, author: </span><span class="s3">&quot;Mark Twain&quot; </span><span class="s1">},</span>
+      <span class="s1">{ text: </span><span class="s3">&quot;We are what we repeatedly do. Excellence, then, is not an act, but a habit.&quot;</span><span class="s1">, author: </span><span class="s3">&quot;Aristotle&quot; </span><span class="s1">},</span>
+      <span class="s1">{ text: </span><span class="s3">&quot;Your future is created by what you do today, not tomorrow.&quot;</span><span class="s1">, author: </span><span class="s3">&quot;Robert Kiyosaki&quot; </span><span class="s1">}</span>
+    <span class="s1">];</span>
+
+
+    <span class="s5">function </span><span class="s1">populateInitialHabitList() {</span>
+      <span class="s5">const </span><span class="s1">habitListContainer = document.getElementById(</span><span class="s3">'habitList'</span><span class="s1">);</span>
+      <span class="s1">habitListContainer.innerHTML = </span><span class="s3">''</span><span class="s1">;</span>
+      <span class="s5">const </span><span class="s1">shuffled = categorizedHabits.sort(() =&gt; </span><span class="s4">0.5 </span><span class="s1">- Math.random());</span>
+      <span class="s5">const </span><span class="s1">randomInitialHabits = shuffled.slice(</span><span class="s4">0</span><span class="s1">, </span><span class="s4">6</span><span class="s1">);</span>
+
+      <span class="s1">randomInitialHabits.forEach(habit =&gt; {</span>
+        <span class="s1">habitListContainer.innerHTML += </span><span class="s3">`&lt;label class=&quot;flex items-center bg-gray-50 dark:bg-gray-800 p-3 rounded-lg hover:bg-teal-50 dark:hover:bg-gray-700 cursor-pointer&quot;&gt;&lt;input type=&quot;checkbox&quot; value=&quot;</span><span class="s1">${habit.name}</span><span class="s3">&quot; class=&quot;h-5 w-5 rounded border-gray-300 text-teal-600 focus:ring-teal-500&quot;&gt;&lt;span class=&quot;ml-3 text-gray-700 dark:text-gray-300&quot;&gt;</span><span class="s1">${habit.name}</span><span class="s3">&lt;/span&gt;&lt;/label&gt;`</span><span class="s1">;</span>
+      <span class="s1">});</span>
+    <span class="s1">}</span>
+
+    <span class="s1">document.getElementById(</span><span class="s3">'addCustomHabitBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; {</span>
+      <span class="s5">const </span><span class="s1">customHabitInput = document.getElementById(</span><span class="s3">'customHabitInput'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">habitName = customHabitInput.value.trim();</span>
+      <span class="s5">if </span><span class="s1">(habitName) {</span>
+        <span class="s1">document.getElementById(</span><span class="s3">'habitList'</span><span class="s1">).innerHTML += </span><span class="s3">`&lt;label class=&quot;flex items-center bg-teal-50 dark:bg-gray-800 p-3 rounded-lg hover:bg-teal-100 dark:hover:bg-gray-700 cursor-pointer&quot;&gt;&lt;input type=&quot;checkbox&quot; value=&quot;</span><span class="s1">${habitName}</span><span class="s3">&quot; checked class=&quot;h-5 w-5 rounded border-gray-300 text-teal-600 focus:ring-teal-500&quot;&gt;&lt;span class=&quot;ml-3 text-gray-700 dark:text-gray-300&quot;&gt;</span><span class="s1">${habitName}</span><span class="s3">&lt;/span&gt;&lt;/label&gt;`</span><span class="s1">;</span>
+        <span class="s1">customHabitInput.value = </span><span class="s3">''</span><span class="s1">;</span>
+      <span class="s1">}</span>
+    <span class="s1">});</span>
+
+    <span class="s1">document.getElementById(</span><span class="s3">'saveHabitsBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; {</span>
+      <span class="s5">const </span><span class="s1">selectedHabits = Array.from(document.querySelectorAll(</span><span class="s3">'#habitList input[type=&quot;checkbox&quot;]:checked'</span><span class="s1">)).map(cb =&gt; cb.value);</span>
+      <span class="s5">let </span><span class="s1">userData = getCurrentUserData();</span>
+      <span class="s1">userData.habits = selectedHabits.map(name =&gt; ({ id: crypto.randomUUID(), name, why: </span><span class="s3">&quot;&quot;</span><span class="s1">, history: {}, streak: </span><span class="s4">0 </span><span class="s1">}));</span>
+      <span class="s1">updateUserData(userData);</span>
+      <span class="s1">init();</span>
+    <span class="s1">});</span>
+
+    <span class="s1">document.getElementById(</span><span class="s3">'addNewHabitBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; {</span>
+      <span class="s5">const </span><span class="s1">newHabitInput = document.getElementById(</span><span class="s3">'newHabitInput'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">habitName = newHabitInput.value.trim();</span>
+      <span class="s5">if </span><span class="s1">(habitName) {</span>
+        <span class="s5">let </span><span class="s1">userData = getCurrentUserData();</span>
+        <span class="s1">userData.habits.push({ id: crypto.randomUUID(), name: habitName, why: </span><span class="s3">&quot;&quot;</span><span class="s1">, history: {}, streak: </span><span class="s4">0 </span><span class="s1">});</span>
+        <span class="s1">updateUserData(userData);</span>
+        <span class="s1">renderHabitConfig(userData.habits);daily</span>
+        <span class="s1">newHabitInput.value = </span><span class="s3">''</span><span class="s1">;</span>
+      <span class="s1">}</span>
+    <span class="s1">});</span>
+
+    <span class="s1">document.getElementById(</span><span class="s3">'goalTimelineSlider'</span><span class="s1">).addEventListener(</span><span class="s3">'input'</span><span class="s1">, (e) =&gt; {</span>
+      <span class="s1">document.getElementById(</span><span class="s3">'goalTimelineValue'</span><span class="s1">).textContent = </span><span class="s3">`</span><span class="s1">${e.target.value} </span><span class="s3">days`</span><span class="s1">;</span>
+    <span class="s1">});</span>
+
+    <span class="s1">document.getElementById(</span><span class="s3">'saveGoalBtn'</span><span class="s1">).addEventListener(</span><span class="s3">'click'</span><span class="s1">, () =&gt; {</span>
+      <span class="s5">const </span><span class="s1">selectedHabitRadio = document.querySelector(</span><span class="s3">'#goalHabitSelection input[type=&quot;radio&quot;]:checked'</span><span class="s1">);</span>
+      <span class="s5">if </span><span class="s1">(!selectedHabitRadio) {</span>
+        <span class="s1">showNotification(</span><span class="s3">&quot;No Habit Selected&quot;</span><span class="s1">, </span><span class="s3">&quot;Please choose a habit to set a goal for.&quot;</span><span class="s1">, </span><span class="s3">&quot;error&quot;</span><span class="s1">);</span>
+        <span class="s5">return</span><span class="s1">;</span>
+      <span class="s1">}</span>
+      <span class="s5">const </span><span class="s1">habitId = selectedHabitRadio.value;</span>
+      <span class="s5">const </span><span class="s1">habitName = selectedHabitRadio.dataset.name;</span>
+      <span class="s5">const </span><span class="s1">timeline = document.getElementById(</span><span class="s3">'goalTimelineSlider'</span><span class="s1">).value;</span>
+
+      <span class="s5">let </span><span class="s1">userData = getCurrentUserData();</span>
+      <span class="s1">userData.goals.push({ id: crypto.randomUUID(), habitId: habitId, habitName: habitName, target: parseInt(timeline), createdAt: </span><span class="s5">new </span><span class="s1">Date().toISOString() });</span>
+      <span class="s1">updateUserData(userData);</span>
+
+      <span class="s1">showNotification(</span><span class="s3">&quot;Goal Set!&quot;</span><span class="s1">, </span><span class="s3">`You've set a </span><span class="s1">${timeline}</span><span class="s3">-day goal for </span><span class="s1">${habitName}</span><span class="s3">.`</span><span class="s1">, </span><span class="s3">&quot;success&quot;</span><span class="s1">);</span>
+      <span class="s1">renderApp(userData);</span>
+      <span class="s1">showFrame(</span><span class="s3">'habit'</span><span class="s1">);</span>
+    <span class="s1">});</span>
+
+    <span class="s7">//Render Functions</span>
+    <span class="s5">function </span><span class="s1">renderApp(userData, isGuest = </span><span class="s5">false</span><span class="s1">) {</span>
+      <span class="s1">document.getElementById(</span><span class="s3">'welcomeMessage'</span><span class="s1">).textContent = </span><span class="s3">`Welcome, </span><span class="s1">${userData.firstName}</span><span class="s3">!`</span><span class="s1">;</span>
+
+      <span class="s5">const </span><span class="s1">quoteContainer = document.getElementById(</span><span class="s3">'quoteContainer'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">recommendationSection = document.getElementById(</span><span class="s3">'recommendationSection'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">goalConfigBtn = document.getElementById(</span><span class="s3">'goalConfigBtn'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">habitConfigBtn = document.getElementById(</span><span class="s3">'habitConfigBtn'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">routineConfigBtn = document.getElementById(</span><span class="s3">'routineConfigBtn'</span><span class="s1">);</span>
+
+      <span class="s5">if </span><span class="s1">(isGuest) {</span>
+        <span class="s5">const </span><span class="s1">randomQuote = motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)];</span>
+        <span class="s1">document.getElementById(</span><span class="s3">'quoteText'</span><span class="s1">).textContent = </span><span class="s3">`&quot;</span><span class="s1">${randomQuote.text}</span><span class="s3">&quot;`</span><span class="s1">;</span>
+        <span class="s1">document.getElementById(</span><span class="s3">'quoteAuthor'</span><span class="s1">).textContent = </span><span class="s3">`– </span><span class="s1">${randomQuote.author}</span><span class="s3">`</span><span class="s1">;</span>
+        <span class="s1">quoteContainer.classList.remove(</span><span class="s3">'hidden'</span><span class="s1">);</span>
+
+        <span class="s1">renderGuestRecommendations();</span>
+        <span class="s5">if </span><span class="s1">(document.getElementById(</span><span class="s3">'goalList'</span><span class="s1">)) document.getElementById(</span><span class="s3">'goalList'</span><span class="s1">).innerHTML = </span><span class="s3">'&lt;p class=&quot;text-sm text-gray-500&quot;&gt;Register to set goals.&lt;/p&gt;'</span><span class="s1">;</span>
+
+        <span class="s5">if </span><span class="s1">(goalConfigBtn) goalConfigBtn.style.display = </span><span class="s3">'none'</span><span class="s1">;</span>
+        <span class="s5">if </span><span class="s1">(routineConfigBtn) routineConfigBtn.style.display = </span><span class="s3">'none'</span><span class="s1">;</span>
+
+      <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+        <span class="s1">quoteContainer.classList.add(</span><span class="s3">'hidden'</span><span class="s1">);</span>
+        <span class="s5">if </span><span class="s1">(goalConfigBtn) goalConfigBtn.style.display = </span><span class="s3">'flex'</span><span class="s1">;</span>
+        <span class="s5">if </span><span class="s1">(habitConfigBtn) habitConfigBtn.style.display = </span><span class="s3">'flex'</span><span class="s1">;</span>
+        <span class="s5">if </span><span class="s1">(routineConfigBtn) routineConfigBtn.style.display = </span><span class="s3">'flex'</span><span class="s1">;</span>
+
+        <span class="s1">renderPersonalizedRecommendations(userData);</span>
+      <span class="s1">}</span>
+
+      <span class="s1">renderHabitDashboard(userData, isGuest);</span>
+    <span class="s1">}</span>
+
+
+    <span class="s5">function </span><span class="s1">renderHabitDashboard(userData, isGuest = </span><span class="s5">false</span><span class="s1">) {</span>
+      <span class="s5">const </span><span class="s1">logoutBtn = document.getElementById(</span><span class="s3">'logoutBtn'</span><span class="s1">);</span>
+      <span class="s5">if </span><span class="s1">(isGuest) {</span>
+        <span class="s1">logoutBtn.textContent = </span><span class="s3">'Exit Guest Mode'</span><span class="s1">;</span>
+        <span class="s1">logoutBtn.onclick = () =&gt; window.location.reload();</span>
+      <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+        <span class="s1">logoutBtn.textContent = </span><span class="s3">'Logout'</span><span class="s1">;</span>
+        <span class="s1">logoutBtn.onclick = logout;</span>
+      <span class="s1">}</span>
+
+      <span class="s5">const </span><span class="s1">container = document.getElementById(</span><span class="s3">'dailyHabitList'</span><span class="s1">);</span>
+      <span class="s1">container.innerHTML = </span><span class="s3">''</span><span class="s1">;</span>
+
+      <span class="s5">if </span><span class="s1">(!userData.habits || userData.habits.length === </span><span class="s4">0</span><span class="s1">) {</span>
+        <span class="s1">container.innerHTML = </span><span class="s3">`&lt;p class=&quot;text-gray-500&quot;&gt;No habits yet. Go to 'Configure Habits' to add some!&lt;/p&gt;`</span><span class="s1">;</span>
+        <span class="s5">return</span><span class="s1">;</span>
+      <span class="s1">}</span>
+
+
+      <span class="s5">const </span><span class="s1">assignedHabitIds = </span><span class="s5">new </span><span class="s1">Set(userData.routines?.flatMap(r =&gt; r.habitIds) || []);</span>
+
+      <span class="s1">(userData.routines || []).forEach(routine =&gt; {</span>
+        <span class="s5">const </span><span class="s1">habitElements = routine.habitIds.map(hid =&gt; {</span>
+          <span class="s5">const </span><span class="s1">habit = userData.habits.find(h =&gt; h.id === hid);</span>
+          <span class="s5">return </span><span class="s1">habit ? createHabitElement(habit) : </span><span class="s3">''</span><span class="s1">;</span>
+        <span class="s1">}).join(</span><span class="s3">''</span><span class="s1">);</span>
+
+        <span class="s5">if </span><span class="s1">(habitElements) {</span>
+          <span class="s5">const </span><span class="s1">routineSection = document.createElement(</span><span class="s3">'div'</span><span class="s1">);</span>
+          <span class="s1">routineSection.className = </span><span class="s3">&quot;mb-6&quot;</span><span class="s1">;</span>
+          <span class="s1">routineSection.innerHTML = </span><span class="s3">`</span>
+                <span class="s3">&lt;h3 class=&quot;text-xl font-semibold mb-3 text-teal-600 dark:text-teal-400&quot;&gt;</span><span class="s1">${routine.name}</span><span class="s3">&lt;/h3&gt; 
+                &lt;div class=&quot;space-y-3&quot;&gt;</span><span class="s1">${habitElements}</span><span class="s3">&lt;/div&gt; 
+            `</span><span class="s1">;</span>
+          <span class="s1">container.appendChild(routineSection);</span>
+        <span class="s1">}</span>
+      <span class="s1">});</span>
+
+      <span class="s5">const </span><span class="s1">unassignedHabits = userData.habits.filter(h =&gt; !assignedHabitIds.has(h.id));</span>
+      <span class="s5">if </span><span class="s1">(unassignedHabits.length &gt; </span><span class="s4">0</span><span class="s1">) {</span>
+        <span class="s5">const </span><span class="s1">unassignedSection = document.createElement(</span><span class="s3">'div'</span><span class="s1">);</span>
+        <span class="s5">const </span><span class="s1">title = (userData.routines &amp;&amp; userData.routines.length &gt; </span><span class="s4">0</span><span class="s1">)</span>
+          <span class="s1">? </span><span class="s3">`&lt;h3 class=&quot;text-xl font-semibold my-3 pt-4 border-t border-gray-200 dark:border-gray-700&quot;&gt;Individual Habits&lt;/h3&gt;`</span>
+          <span class="s1">: </span><span class="s3">''</span><span class="s1">;</span>
+        <span class="s1">unassignedSection.innerHTML = </span><span class="s3">`</span>
+            <span class="s1">${title}</span>
+            <span class="s3">&lt;div class=&quot;space-y-3&quot;&gt;</span><span class="s1">${unassignedHabits.map(createHabitElement).join(</span><span class="s3">''</span><span class="s1">)}</span><span class="s3">&lt;/div&gt; 
+        `</span><span class="s1">;</span>
+        <span class="s1">container.appendChild(unassignedSection);</span>
+      <span class="s1">}</span>
+
+      <span class="s1">addDashboardEventListeners(isGuest ? userData : </span><span class="s5">null</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">renderHabitConfig(habits) {</span>
+      <span class="s5">const </span><span class="s1">listContainer = document.getElementById(</span><span class="s3">'configHabitList'</span><span class="s1">);</span>
+      <span class="s1">listContainer.innerHTML = </span><span class="s3">''</span><span class="s1">; </span><span class="s7">// Clear the list first</span>
+
+      <span class="s5">if </span><span class="s1">(habits &amp;&amp; habits.length &gt; </span><span class="s4">0</span><span class="s1">) {</span>
+        <span class="s1">habits.forEach(habit =&gt; {</span>
+          <span class="s5">const </span><span class="s1">habitDiv = document.createElement(</span><span class="s3">'div'</span><span class="s1">);</span>
+          <span class="s1">habitDiv.className = </span><span class="s3">&quot;bg-gray-100 dark:bg-gray-800 p-3 rounded-lg&quot;</span><span class="s1">;</span>
+
+          <span class="s1">habitDiv.innerHTML = </span><span class="s3">`</span>
+                <span class="s3">&lt;div class=&quot;flex items-center justify-between&quot;&gt; 
+                    &lt;span class=&quot;font-semibold&quot;&gt;</span><span class="s1">${habit.name}</span><span class="s3">&lt;/span&gt; 
+                    &lt;button class=&quot;remove-habit-btn text-red-500 hover:text-red-700&quot; data-habit-id=&quot;</span><span class="s1">${habit.id}</span><span class="s3">&quot;&gt; 
+                        &lt;i class=&quot;fas fa-trash-alt&quot;&gt;&lt;/i&gt; 
+                    &lt;/button&gt; 
+                &lt;/div&gt; 
+                &lt;input 
+                    type=&quot;text&quot; 
+                    data-habit-id=&quot;</span><span class="s1">${habit.id}</span><span class="s3">&quot; 
+                    class=&quot;why-input w-full text-sm mt-2 p-2 border rounded bg-white dark:bg-gray-700&quot; 
+                    value=&quot;</span><span class="s1">${habit.why || </span><span class="s3">''</span><span class="s1">}</span><span class="s3">&quot; 
+                    placeholder=&quot;My 'Why' (e.g., to feel more focused)...&quot;&gt; 
+            `</span><span class="s1">;</span>
+
+          <span class="s1">listContainer.appendChild(habitDiv);</span>
+        <span class="s1">});</span>
+      <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+        <span class="s1">listContainer.innerHTML = </span><span class="s3">`&lt;p class=&quot;text-gray-500 text-center&quot;&gt;No habits added yet.&lt;/p&gt;`</span><span class="s1">;</span>
+      <span class="s1">}</span>
+      <span class="s1">addHabitConfigEventListeners();</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">renderRoutineConfig() {</span>
+      <span class="s5">const </span><span class="s1">userData = getCurrentUserData();</span>
+      <span class="s5">const </span><span class="s1">container = document.getElementById(</span><span class="s3">'routineListContainer'</span><span class="s1">);</span>
+      <span class="s1">container.innerHTML = </span><span class="s3">''</span><span class="s1">;</span>
+
+      <span class="s1">(userData.routines || []).forEach(routine =&gt; {</span>
+        <span class="s5">const </span><span class="s1">routineEl = document.createElement(</span><span class="s3">'div'</span><span class="s1">);</span>
+        <span class="s1">routineEl.className = </span><span class="s3">'bg-gray-100 dark:bg-gray-800 p-4 rounded-lg'</span><span class="s1">;</span>
+
+        <span class="s5">let </span><span class="s1">assignedHabitsHtml = routine.habitIds.map(habitId =&gt; {</span>
+          <span class="s5">const </span><span class="s1">habit = userData.habits.find(h =&gt; h.id === habitId);</span>
+          <span class="s5">return </span><span class="s1">habit ? </span><span class="s3">`&lt;li class=&quot;flex justify-between items-center text-sm py-1&quot;&gt;&lt;span&gt;</span><span class="s1">${habit.name}</span><span class="s3">&lt;/span&gt;&lt;button class=&quot;remove-habit-from-routine-btn text-red-400 text-xs&quot; data-routine-id=&quot;</span><span class="s1">${routine.id}</span><span class="s3">&quot; data-habit-id=&quot;</span><span class="s1">${habit.id}</span><span class="s3">&quot;&gt;Remove&lt;/button&gt;&lt;/li&gt;` </span><span class="s1">: </span><span class="s3">''</span><span class="s1">;</span>
+        <span class="s1">}).join(</span><span class="s3">''</span><span class="s1">);</span>
+
+        <span class="s5">const </span><span class="s1">allUserHabitIds = </span><span class="s5">new </span><span class="s1">Set(userData.routines.flatMap(r =&gt; r.habitIds));</span>
+        <span class="s5">const </span><span class="s1">availableHabits = userData.habits.filter(h =&gt; !allUserHabitIds.has(h.id));</span>
+        <span class="s5">let </span><span class="s1">optionsHtml = availableHabits.map(h =&gt; </span><span class="s3">`&lt;option value=&quot;</span><span class="s1">${h.id}</span><span class="s3">&quot;&gt;</span><span class="s1">${h.name}</span><span class="s3">&lt;/option&gt;`</span><span class="s1">).join(</span><span class="s3">''</span><span class="s1">);</span>
+
+        <span class="s1">routineEl.innerHTML = </span><span class="s3">`</span>
+            <span class="s3">&lt;div class=&quot;flex justify-between items-center mb-2&quot;&gt; 
+                &lt;h4 class=&quot;text-lg font-bold text-teal-600 dark:text-teal-400&quot;&gt;</span><span class="s1">${routine.name}</span><span class="s3">&lt;/h4&gt; 
+                &lt;button class=&quot;remove-routine-btn text-red-500 hover:text-red-700&quot; data-routine-id=&quot;</span><span class="s1">${routine.id}</span><span class="s3">&quot;&gt;&lt;i class=&quot;fas fa-trash&quot;&gt;&lt;/i&gt;&lt;/button&gt; 
+            &lt;/div&gt; 
+            &lt;ul class=&quot;list-disc list-inside ml-4 mb-3&quot;&gt;</span><span class="s1">${assignedHabitsHtml || </span><span class="s3">'&lt;li class=&quot;text-sm text-gray-500&quot;&gt;No habits assigned.&lt;/li&gt;'</span><span class="s1">}</span><span class="s3">&lt;/ul&gt; 
+            </span><span class="s1">${availableHabits.length &gt; </span><span class="s4">0 </span><span class="s1">? </span><span class="s3">`</span>
+            <span class="s3">&lt;div class=&quot;flex items-center gap-2 mt-2 border-t pt-3&quot;&gt; 
+                &lt;select class=&quot;add-habit-to-routine-select flex-grow py-1 px-2 border rounded dark:bg-gray-700&quot;&gt; 
+                    &lt;option value=&quot;&quot;&gt;-- Add an available habit --&lt;/option&gt; 
+                    </span><span class="s1">${optionsHtml}</span>
+                <span class="s3">&lt;/select&gt; 
+                &lt;button class=&quot;add-habit-to-routine-btn btn-primary text-white text-sm py-1 px-3 rounded&quot; data-routine-id=&quot;</span><span class="s1">${routine.id}</span><span class="s3">&quot;&gt;Add&lt;/button&gt; 
+            &lt;/div&gt;` </span><span class="s1">: </span><span class="s3">''</span><span class="s1">}</span>
+        <span class="s3">`</span><span class="s1">;</span>
+        <span class="s1">container.appendChild(routineEl);</span>
+      <span class="s1">});</span>
+      <span class="s1">addRoutineConfigEventListeners();</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">renderPersonalizedRecommendations(userData) {</span>
+      <span class="s5">const </span><span class="s1">recommendationSection = document.getElementById(</span><span class="s3">'recommendationSection'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">recommendationList = document.getElementById(</span><span class="s3">'recommendationList'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">recommendationTitle = document.getElementById(</span><span class="s3">'recommendationTitle'</span><span class="s1">);</span>
+
+      <span class="s1">recommendationList.innerHTML = </span><span class="s3">''</span><span class="s1">;</span>
+      <span class="s1">recommendationTitle.textContent = </span><span class="s3">&quot;Recommended for You&quot;</span><span class="s1">;</span>
+
+      <span class="s5">const </span><span class="s1">userHabitNames = userData.habits.map(h =&gt; h.name);</span>
+      <span class="s5">const </span><span class="s1">userCategories = userData.habits.map(h =&gt; h.category);</span>
+
+      <span class="s5">let </span><span class="s1">recommendations = [];</span>
+
+      <span class="s5">if </span><span class="s1">(userCategories.length &gt; </span><span class="s4">0</span><span class="s1">) {</span>
+        <span class="s5">const </span><span class="s1">categoryCounts = userCategories.reduce((acc, cat) =&gt; {</span>
+          <span class="s5">if </span><span class="s1">(cat) acc[cat] = (acc[cat] || </span><span class="s4">0</span><span class="s1">) + </span><span class="s4">1</span><span class="s1">;</span>
+          <span class="s5">return </span><span class="s1">acc;</span>
+        <span class="s1">}, {});</span>
+
+        <span class="s5">if </span><span class="s1">(Object.keys(categoryCounts).length &gt; </span><span class="s4">0</span><span class="s1">) {</span>
+          <span class="s5">const </span><span class="s1">topCategory = Object.keys(categoryCounts).reduce((a, b) =&gt; categoryCounts[a] &gt; categoryCounts[b] ? a : b);</span>
+          <span class="s1">recommendations = categorizedHabits.filter(h =&gt;</span>
+            <span class="s1">h.category === topCategory &amp;&amp; !userHabitNames.includes(h.name)</span>
+          <span class="s1">);</span>
+        <span class="s1">}</span>
+      <span class="s1">}</span>
+      <span class="s5">if </span><span class="s1">(recommendations.length === </span><span class="s4">0</span><span class="s1">) {</span>
+        <span class="s1">recommendations = categorizedHabits.filter(h =&gt; !userHabitNames.includes(h.name));</span>
+      <span class="s1">}</span>
+      <span class="s5">if </span><span class="s1">(recommendations.length &gt; </span><span class="s4">0</span><span class="s1">) {</span>
+        <span class="s1">recommendations.slice(</span><span class="s4">0</span><span class="s1">, </span><span class="s4">2</span><span class="s1">).forEach(habit =&gt; {</span>
+          <span class="s5">const </span><span class="s1">card = </span><span class="s3">`</span>
+            <span class="s3">&lt;div class=&quot;bg-gray-50 dark:bg-gray-800 p-3 rounded-lg flex items-center justify-between shadow-sm hover:bg-teal-50 dark:hover:bg-gray-700/50&quot;&gt; 
+              &lt;div&gt; 
+                &lt;p class=&quot;font-semibold text-gray-800 dark:text-gray-200&quot;&gt;</span><span class="s1">${habit.name}</span><span class="s3">&lt;/p&gt; 
+                &lt;p class=&quot;text-xs text-teal-500 dark:text-teal-400&quot;&gt;</span><span class="s1">${habit.category}</span><span class="s3">&lt;/p&gt; 
+              &lt;/div&gt; 
+              &lt;button data-habit-name=&quot;</span><span class="s1">${habit.name}</span><span class="s3">&quot; class=&quot;add-recommendation-btn bg-teal-100 text-teal-700 dark:bg-teal-900/50 dark:text-teal-300 text-sm font-semibold py-1 px-3 rounded-full hover:bg-teal-200 dark:hover:bg-teal-900&quot;&gt;Add&lt;/button&gt; 
+            &lt;/div&gt;`</span><span class="s1">;</span>
+          <span class="s1">recommendationList.innerHTML += card;</span>
+        <span class="s1">});</span>
+        <span class="s1">addRecommendationEventListeners();</span>
+        <span class="s1">recommendationSection.classList.remove(</span><span class="s3">'hidden'</span><span class="s1">);</span>
+      <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+        <span class="s1">recommendationSection.classList.add(</span><span class="s3">'hidden'</span><span class="s1">);</span>
+      <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">renderGoalConfig(habits, goals) {</span>
+      <span class="s5">const </span><span class="s1">selectionContainer = document.getElementById(</span><span class="s3">'goalHabitSelection'</span><span class="s1">);</span>
+      <span class="s1">selectionContainer.innerHTML = </span><span class="s3">''</span><span class="s1">;</span>
+      <span class="s5">const </span><span class="s1">goalHabitIds = goals ? goals.map(g =&gt; g.habitId) : [];</span>
+      <span class="s5">if </span><span class="s1">(habits &amp;&amp; habits.length &gt; </span><span class="s4">0</span><span class="s1">) {</span>
+        <span class="s1">habits.forEach(habit =&gt; {</span>
+          <span class="s5">const </span><span class="s1">hasGoal = goalHabitIds.includes(habit.id);</span>
+          <span class="s1">selectionContainer.innerHTML += </span><span class="s3">`&lt;label class=&quot;flex items-center bg-gray-50 dark:bg-gray-800 p-3 rounded-lg </span><span class="s1">${hasGoal ? </span><span class="s3">'opacity-50 cursor-not-allowed' </span><span class="s1">: </span><span class="s3">'hover:bg-teal-50 dark:hover:bg-gray-700 cursor-pointer'</span><span class="s1">}</span><span class="s3">&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;goalHabit&quot; value=&quot;</span><span class="s1">${habit.id}</span><span class="s3">&quot; data-name=&quot;</span><span class="s1">${habit.name}</span><span class="s3">&quot; class=&quot;h-5 w-5 text-teal-600 focus:ring-teal-500&quot; </span><span class="s1">${hasGoal ? </span><span class="s3">'disabled' </span><span class="s1">: </span><span class="s3">''</span><span class="s1">}</span><span class="s3">&gt;&lt;span class=&quot;ml-3 text-gray-700 dark:text-gray-300&quot;&gt;</span><span class="s1">${habit.name} ${hasGoal ? </span><span class="s3">'(Goal already set)' </span><span class="s1">: </span><span class="s3">''</span><span class="s1">}</span><span class="s3">&lt;/span&gt;&lt;/label&gt;`</span><span class="s1">;</span>
+        <span class="s1">});</span>
+      <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+        <span class="s1">selectionContainer.innerHTML = </span><span class="s3">`&lt;p class=&quot;text-gray-500 text-center&quot;&gt;You need to add habits before you can set goals.&lt;/p&gt;`</span><span class="s1">;</span>
+      <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">renderGuestRecommendations() {</span>
+      <span class="s5">const </span><span class="s1">list = document.getElementById(</span><span class="s3">'recommendationList'</span><span class="s1">);</span>
+      <span class="s1">document.getElementById(</span><span class="s3">'recommendationTitle'</span><span class="s1">).textContent = </span><span class="s3">&quot;Explore Habits&quot;</span><span class="s1">;</span>
+      <span class="s1">list.innerHTML = categorizedHabits.sort(() =&gt; </span><span class="s4">0.5 </span><span class="s1">- Math.random()).slice(</span><span class="s4">0</span><span class="s1">, </span><span class="s4">3</span><span class="s1">)</span>
+        <span class="s1">.map(habit =&gt; </span><span class="s3">`&lt;div class=&quot;bg-gray-50 dark:bg-gray-800 p-3 rounded-lg text-sm&quot;&gt;</span><span class="s1">${habit.name}</span><span class="s3">&lt;/div&gt;`</span><span class="s1">).join(</span><span class="s3">''</span><span class="s1">);</span>
+      <span class="s1">document.getElementById(</span><span class="s3">'recommendationSection'</span><span class="s1">).classList.remove(</span><span class="s3">'hidden'</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s7">//Add Functions</span>
+    <span class="s5">function </span><span class="s1">addDashboardEventListeners(guestData = </span><span class="s5">null</span><span class="s1">) {</span>
+      <span class="s1">document.querySelectorAll(</span><span class="s3">'.habit-checkbox'</span><span class="s1">).forEach(checkbox =&gt; {</span>
+        <span class="s1">checkbox.addEventListener(</span><span class="s3">'change'</span><span class="s1">, (e) =&gt; {</span>
+          <span class="s5">if </span><span class="s1">(guestData) {</span>
+            <span class="s7">// Handle guest data in memory</span>
+            <span class="s5">const </span><span class="s1">habit = guestData.habits.find(h =&gt; h.id === e.target.dataset.habitId);</span>
+            <span class="s5">const </span><span class="s1">today = getTodayString();</span>
+            <span class="s5">if </span><span class="s1">(e.target.checked) { habit.history[today] = </span><span class="s5">true</span><span class="s1">; } </span><span class="s5">else </span><span class="s1">{ </span><span class="s5">delete </span><span class="s1">habit.history[today]; }</span>
+            <span class="s1">renderApp(guestData, </span><span class="s5">true</span><span class="s1">);</span>
+          <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+            <span class="s1">toggleHabitCompletion(e.target.dataset.habitId, e.target.checked);</span>
+          <span class="s1">}</span>
+        <span class="s1">});</span>
+      <span class="s1">});</span>
+
+      <span class="s1">document.querySelectorAll(</span><span class="s3">'.remove-goal-btn'</span><span class="s1">).forEach(button =&gt; {</span>
+        <span class="s1">button.addEventListener(</span><span class="s3">'click'</span><span class="s1">, (e) =&gt; {</span>
+          <span class="s5">let </span><span class="s1">userData = getCurrentUserData();</span>
+          <span class="s1">userData.goals = userData.goals.filter(g =&gt; g.id !== e.target.dataset.goalId);</span>
+          <span class="s1">updateUserData(userData);</span>
+          <span class="s1">renderApp(userData);</span>
+        <span class="s1">});</span>
+      <span class="s1">});</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">addHabitConfigEventListeners() {</span>
+      <span class="s1">document.querySelectorAll(</span><span class="s3">'.remove-habit-btn'</span><span class="s1">).forEach(button =&gt; {</span>
+        <span class="s1">button.addEventListener(</span><span class="s3">'click'</span><span class="s1">, (e) =&gt; {</span>
+          <span class="s5">let </span><span class="s1">userData = getCurrentUserData();</span>
+          <span class="s1">userData.habits = userData.habits.filter(h =&gt; h.id !== e.currentTarget.dataset.habitId);</span>
+          <span class="s1">updateUserData(userData);</span>
+          <span class="s1">renderHabitConfig(userData.habits);</span>
+        <span class="s1">});</span>
+      <span class="s1">});</span>
+      <span class="s1">document.querySelectorAll(</span><span class="s3">'.why-input'</span><span class="s1">).forEach(input =&gt; {</span>
+        <span class="s1">input.addEventListener(</span><span class="s3">'blur'</span><span class="s1">, (e) =&gt; {</span>
+          <span class="s5">let </span><span class="s1">userData = getCurrentUserData();</span>
+          <span class="s5">const </span><span class="s1">habit = userData.habits.find(h =&gt; h.id === e.target.dataset.habitId);</span>
+          <span class="s5">if </span><span class="s1">(habit) {</span>
+            <span class="s1">habit.why = e.target.value.trim();</span>
+            <span class="s1">updateUserData(userData);</span>
+          <span class="s1">}</span>
+        <span class="s1">});</span>
+      <span class="s1">});</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">addRoutineConfigEventListeners() {</span>
+      <span class="s1">document.getElementById(</span><span class="s3">'addNewRoutineBtn'</span><span class="s1">).onclick = () =&gt; {</span>
+        <span class="s5">const </span><span class="s1">newRoutineInput = document.getElementById(</span><span class="s3">'newRoutineInput'</span><span class="s1">);</span>
+        <span class="s5">const </span><span class="s1">routineName = newRoutineInput.value.trim();</span>
+        <span class="s5">if</span><span class="s1">(routineName) {</span>
+          <span class="s5">const </span><span class="s1">userData = getCurrentUserData();</span>
+          <span class="s5">if </span><span class="s1">(!userData.routines) userData.routines = [];</span>
+          <span class="s1">userData.routines.push({ id: crypto.randomUUID(), name: routineName, habitIds: [] });</span>
+          <span class="s1">updateUserData(userData);</span>
+          <span class="s1">renderRoutineConfig();</span>
+          <span class="s1">newRoutineInput.value = </span><span class="s3">''</span><span class="s1">;</span>
+        <span class="s1">}</span>
+      <span class="s1">};</span>
+
+      <span class="s1">document.querySelectorAll(</span><span class="s3">'.remove-routine-btn'</span><span class="s1">).forEach(btn =&gt; {</span>
+        <span class="s1">btn.onclick = (e) =&gt; {</span>
+          <span class="s5">const </span><span class="s1">userData = getCurrentUserData();</span>
+          <span class="s1">userData.routines = userData.routines.filter(r =&gt; r.id !== e.currentTarget.dataset.routineId);</span>
+          <span class="s1">updateUserData(userData);</span>
+          <span class="s1">renderRoutineConfig();</span>
+        <span class="s1">}</span>
+      <span class="s1">});</span>
+
+      <span class="s1">document.querySelectorAll(</span><span class="s3">'.add-habit-to-routine-btn'</span><span class="s1">).forEach(btn =&gt; {</span>
+        <span class="s1">btn.onclick = (e) =&gt; {</span>
+          <span class="s5">const </span><span class="s1">routineId = e.currentTarget.dataset.routineId;</span>
+          <span class="s5">const </span><span class="s1">selectEl = e.currentTarget.previousElementSibling;</span>
+          <span class="s5">const </span><span class="s1">habitId = selectEl.value;</span>
+          <span class="s5">if </span><span class="s1">(habitId) {</span>
+            <span class="s5">const </span><span class="s1">userData = getCurrentUserData();</span>
+            <span class="s5">const </span><span class="s1">routine = userData.routines.find(r =&gt; r.id === routineId);</span>
+            <span class="s5">if </span><span class="s1">(routine &amp;&amp; !routine.habitIds.includes(habitId)) {</span>
+              <span class="s1">routine.habitIds.push(habitId);</span>
+              <span class="s1">updateUserData(userData);</span>
+              <span class="s1">renderRoutineConfig();</span>
+            <span class="s1">}</span>
+          <span class="s1">}</span>
+        <span class="s1">}</span>
+      <span class="s1">});</span>
+
+      <span class="s1">document.querySelectorAll(</span><span class="s3">'.remove-habit-from-routine-btn'</span><span class="s1">).forEach(btn =&gt; {</span>
+        <span class="s1">btn.onclick = (e) =&gt; {</span>
+          <span class="s5">const </span><span class="s1">{ routineId, habitId } = e.currentTarget.dataset;</span>
+          <span class="s5">const </span><span class="s1">userData = getCurrentUserData();</span>
+          <span class="s5">const </span><span class="s1">routine = userData.routines.find(r =&gt; r.id === routineId);</span>
+          <span class="s5">if</span><span class="s1">(routine) {</span>
+            <span class="s1">routine.habitIds = routine.habitIds.filter(id =&gt; id !== habitId);</span>
+            <span class="s1">updateUserData(userData);</span>
+            <span class="s1">renderRoutineConfig();</span>
+          <span class="s1">}</span>
+        <span class="s1">}</span>
+      <span class="s1">});</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">addRecommendationEventListeners() {</span>
+      <span class="s1">document.querySelectorAll(</span><span class="s3">'.add-recommendation-btn'</span><span class="s1">).forEach(button =&gt; {</span>
+        <span class="s1">button.onclick = (e) =&gt; {</span>
+          <span class="s5">const </span><span class="s1">habitName = e.target.dataset.habitName;</span>
+          <span class="s5">let </span><span class="s1">userData = getCurrentUserData();</span>
+
+          <span class="s5">if </span><span class="s1">(!userData.habits.some(h =&gt; h.name === habitName)) {</span>
+            <span class="s1">userData.habits.push({ id: crypto.randomUUID(), name: habitName, history: {}, streak: </span><span class="s4">0 </span><span class="s1">});</span>
+            <span class="s1">updateUserData(userData);</span>
+            <span class="s1">renderApp(userData);</span>
+          <span class="s1">}</span>
+        <span class="s1">};</span>
+      <span class="s1">});</span>
+    <span class="s1">}</span>
+
+    <span class="s7">//Helper Functions</span>
+    <span class="s5">function </span><span class="s1">createHabitElement(habit) {</span>
+      <span class="s5">if </span><span class="s1">(!habit) </span><span class="s5">return </span><span class="s3">''</span><span class="s1">;</span>
+
+      <span class="s5">const </span><span class="s1">today = getTodayString();</span>
+      <span class="s5">const </span><span class="s1">isCompleted = habit.history &amp;&amp; habit.history[today];</span>
+      <span class="s5">const </span><span class="s1">streak = calculateStreak(habit.history);</span>
+
+      <span class="s5">return </span><span class="s3">`</span>
+        <span class="s3">&lt;div class=&quot;flex flex-col bg-gray-50 dark:bg-gray-800 p-3 rounded-lg shadow-sm&quot;&gt; 
+            &lt;div class=&quot;flex items-center justify-between&quot;&gt; 
+                &lt;label class=&quot;flex items-center cursor-pointer flex-grow&quot;&gt; 
+                    &lt;input type=&quot;checkbox&quot; data-habit-id=&quot;</span><span class="s1">${habit.id}</span><span class="s3">&quot; class=&quot;habit-checkbox h-6 w-6 rounded border-gray-300 text-teal-600&quot; </span><span class="s1">${isCompleted ? </span><span class="s3">'checked' </span><span class="s1">: </span><span class="s3">''</span><span class="s1">}</span><span class="s3">&gt; 
+                    &lt;span class=&quot;ml-4 text-lg&quot;&gt;</span><span class="s1">${habit.name}</span><span class="s3">&lt;/span&gt; 
+                &lt;/label&gt; 
+                </span><span class="s1">${streak &gt; </span><span class="s4">0 </span><span class="s1">? </span><span class="s3">`&lt;span class=&quot;text-sm font-semibold text-orange-500&quot;&gt;&lt;i class=&quot;fas fa-fire mr-1&quot;&gt;&lt;/i&gt;</span><span class="s1">${streak}</span><span class="s3">d&lt;/span&gt;` </span><span class="s1">: </span><span class="s3">''</span><span class="s1">}</span>
+            <span class="s3">&lt;/div&gt; 
+            </span><span class="s1">${habit.why ? </span><span class="s3">`&lt;p class=&quot;text-xs text-gray-500 dark:text-gray-400 mt-1 pl-10 italic&quot;&gt;Why: </span><span class="s1">${habit.why}</span><span class="s3">&lt;/p&gt;` </span><span class="s1">: </span><span class="s3">''</span><span class="s1">}</span>
+        <span class="s3">&lt;/div&gt; 
+    `</span><span class="s1">;</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">navigateToDashboard() {</span>
+      <span class="s5">if </span><span class="s1">(currentSessionData) {</span>
+        <span class="s7">//Ändern um Guestmode zu funktionieren lassen. Change this value to false when working with the personalization feature</span>
+        <span class="s5">const </span><span class="s1">isGuest = </span><span class="s5">false</span><span class="s1">;</span>
+
+        <span class="s1">renderApp(currentSessionData, isGuest);</span>
+        <span class="s1">showFrame(</span><span class="s3">'habit'</span><span class="s1">);</span>
+      <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+        <span class="s1">showFrame(</span><span class="s3">'start'</span><span class="s1">);</span>
+      <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">getTodayString() { </span><span class="s5">return new </span><span class="s1">Date().toISOString().split(</span><span class="s3">'T'</span><span class="s1">)[</span><span class="s4">0</span><span class="s1">]; }</span>
+
+    <span class="s7">// --- Data Logic Helpers ---</span>
+    <span class="s5">function </span><span class="s1">toggleHabitCompletion(habitId, isCompleted) {</span>
+      <span class="s5">let </span><span class="s1">userData = getCurrentUserData();</span>
+      <span class="s5">const </span><span class="s1">habit = userData.habits.find(h =&gt; h.id === habitId);</span>
+      <span class="s5">if </span><span class="s1">(!habit) </span><span class="s5">return</span><span class="s1">;</span>
+
+      <span class="s5">const </span><span class="s1">today = getTodayString();</span>
+      <span class="s5">if </span><span class="s1">(isCompleted) {</span>
+        <span class="s1">habit.history[today] = </span><span class="s5">true</span><span class="s1">;</span>
+      <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+        <span class="s5">delete </span><span class="s1">habit.history[today];</span>
+      <span class="s1">}</span>
+
+      <span class="s5">const </span><span class="s1">streak = calculateStreak(habit.history);</span>
+
+      <span class="s5">if </span><span class="s1">(isCompleted &amp;&amp; habit.why &amp;&amp; streak &gt; </span><span class="s4">1</span><span class="s1">) {</span>
+        <span class="s1">showNotification(</span>
+          <span class="s3">`Day </span><span class="s1">${streak} </span><span class="s3">Complete!`</span><span class="s1">,</span>
+          <span class="s3">`Great work on your goal: &quot;</span><span class="s1">${habit.why}</span><span class="s3">&quot;`</span>
+        <span class="s1">);</span>
+      <span class="s1">}</span>
+
+      <span class="s1">updateUserData(userData);</span>
+      <span class="s1">renderApp(userData);</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">calculateStreak(history) {</span>
+      <span class="s5">if </span><span class="s1">(!history) </span><span class="s5">return </span><span class="s4">0</span><span class="s1">;</span>
+      <span class="s5">let </span><span class="s1">streak = </span><span class="s4">0</span><span class="s1">;</span>
+      <span class="s5">let </span><span class="s1">currentDate = </span><span class="s5">new </span><span class="s1">Date();</span>
+      <span class="s5">if </span><span class="s1">(!history[currentDate.toISOString().split(</span><span class="s3">'T'</span><span class="s1">)[</span><span class="s4">0</span><span class="s1">]]) {</span>
+        <span class="s1">currentDate.setDate(currentDate.getDate() - </span><span class="s4">1</span><span class="s1">);</span>
+      <span class="s1">}</span>
+      <span class="s5">while </span><span class="s1">(history[currentDate.toISOString().split(</span><span class="s3">'T'</span><span class="s1">)[</span><span class="s4">0</span><span class="s1">]]) {</span>
+        <span class="s1">streak++;</span>
+        <span class="s1">currentDate.setDate(currentDate.getDate() - </span><span class="s4">1</span><span class="s1">);</span>
+      <span class="s1">}</span>
+      <span class="s5">return </span><span class="s1">streak;</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">handleGoalCompletion(goalId) {</span>
+      <span class="s5">let </span><span class="s1">userData = getCurrentUserData();</span>
+      <span class="s5">const </span><span class="s1">goal = userData.goals.find(g =&gt; g.id === goalId);</span>
+      <span class="s5">if </span><span class="s1">(!goal) </span><span class="s5">return</span><span class="s1">;</span>
+
+      <span class="s1">showNotification(</span><span class="s3">&quot;Goal Achieved!&quot;</span><span class="s1">, </span><span class="s3">`Congratulations! You completed your </span><span class="s1">${goal.target}</span><span class="s3">-day goal for &quot;</span><span class="s1">${goal.habitName}</span><span class="s3">&quot;!`</span><span class="s1">, </span><span class="s3">&quot;success&quot;</span><span class="s1">);</span>
+      <span class="s1">userData.goals = userData.goals.filter(g =&gt; g.id !== goalId);</span>
+      <span class="s1">updateUserData(userData);</span>
+      <span class="s1">renderApp(userData);</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">showNotification(title, message, type = </span><span class="s3">'success'</span><span class="s1">) {</span>
+      <span class="s5">const </span><span class="s1">modalTitle = document.getElementById(</span><span class="s3">'modalTitle'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">modalMessage = document.getElementById(</span><span class="s3">'modalMessage'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">modalIcon = document.getElementById(</span><span class="s3">'modalIcon'</span><span class="s1">);</span>
+      <span class="s5">const </span><span class="s1">modalIconContainer = document.getElementById(</span><span class="s3">'modalIconContainer'</span><span class="s1">);</span>
+
+      <span class="s1">modalTitle.textContent = title;</span>
+      <span class="s1">modalMessage.textContent = message;</span>
+      <span class="s1">modalIconContainer.className = </span><span class="s3">'mx-auto flex items-center justify-center h-16 w-16 rounded-full mb-4'</span><span class="s1">;</span>
+      <span class="s1">modalIcon.className = </span><span class="s3">'text-4xl'</span><span class="s1">;</span>
+
+      <span class="s5">if </span><span class="s1">(type === </span><span class="s3">'success'</span><span class="s1">) {</span>
+        <span class="s1">modalIconContainer.classList.add(</span><span class="s3">'bg-green-100'</span><span class="s1">, </span><span class="s3">'dark:bg-green-900/30'</span><span class="s1">);</span>
+        <span class="s1">modalIcon.classList.add(</span><span class="s3">'fas'</span><span class="s1">, </span><span class="s3">'fa-check-circle'</span><span class="s1">, </span><span class="s3">'text-green-500'</span><span class="s1">);</span>
+      <span class="s1">} </span><span class="s5">else </span><span class="s1">{</span>
+        <span class="s1">modalIconContainer.classList.add(</span><span class="s3">'bg-red-100'</span><span class="s1">, </span><span class="s3">'dark:bg-red-900/30'</span><span class="s1">);</span>
+        <span class="s1">modalIcon.classList.add(</span><span class="s3">'fas'</span><span class="s1">, </span><span class="s3">'fa-exclamation-triangle'</span><span class="s1">, </span><span class="s3">'text-red-500'</span><span class="s1">);</span>
+      <span class="s1">}</span>
+      <span class="s1">notificationModal.classList.remove(</span><span class="s3">'hidden'</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s7">//Database Helpers</span>
+    <span class="s5">function </span><span class="s1">saveDatabase() {</span>
+      <span class="s1">localStorage.setItem(</span><span class="s3">'userDatabase'</span><span class="s1">, JSON.stringify(userDatabase));</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">getCurrentUserData() {</span>
+      <span class="s5">return </span><span class="s1">userDatabase.find(u =&gt; u.username === currentUser.username);</span>
+    <span class="s1">}</span>
+
+    <span class="s5">function </span><span class="s1">updateUserData(updatedData) {</span>
+      <span class="s5">const </span><span class="s1">userIndex = userDatabase.findIndex(u =&gt; u.username === updatedData.username);</span>
+      <span class="s5">if </span><span class="s1">(userIndex !== -</span><span class="s4">1</span><span class="s1">) {</span>
+        <span class="s1">userDatabase[userIndex] = updatedData;</span>
+        <span class="s1">saveDatabase();</span>
+      <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">init();</span>
+  <span class="s1">});</span>
+<span class="s0">&lt;/script&gt;</span>
+<span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span>
+</pre>
+</body>
+</html>

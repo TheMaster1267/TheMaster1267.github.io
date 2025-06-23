@@ -1,1 +1,910 @@
-<html><head><title>~/Desktop/  /Programming Projects/HCI-Project/.idea</title></head><body><a href="misc.xml.html">misc.xml</a><br /><a href=".gitignore.html">.gitignore</a><br /><a href="modules.xml.html">modules.xml</a><br /><a href="workspace.xml.html">workspace.xml</a><br /></body></html>
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elevate - Your Personal Habit Tracker</title>
+  <base target="_self">
+  <link rel="icon" href="data:,">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .auth-container, .main-container {
+      background: linear-gradient(135deg, rgba(249, 250, 251, 0.1) 0%, rgba(229, 231, 235, 0.1) 100%);
+      backdrop-filter: blur(10px);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #14b8a6 0%, #3b82f6 100%);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0d9488 0%, #2563eb 100%);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 min-h-full font-sans antialiased text-gray-800 dark:text-gray-200">
+
+<div id="appContainer" class="container mx-auto px-4 py-8 flex items-center justify-center min-h-screen">
+
+  <div id="startFrame" class="w-full max-w-md mx-auto fade-in">
+    <div class="auth-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
+      <div class="text-center mb-8">
+        <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-2">Elevate</h1>
+        <p class="text-gray-600 dark:text-gray-400">Your Personal Habit Tracker</p>
+      </div>
+      <p class="text-center text-gray-700 dark:text-gray-300 mb-8">
+        Stay on track with daily habits, get tailored feedback, and build lasting streaks. Your journey, your pace. Let’s grow together!
+      </p>
+      <div class="space-y-4">
+        <button id="loginBtn" class="w-full btn-primary text-white py-3 px-4 rounded-lg font-semibold shadow-md transition-transform transform hover:scale-105">Login</button>
+        <button id="registerBtn" class="w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 px-4 rounded-lg font-semibold border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-transform transform hover:scale-105 shadow-md">Register</button>
+        <button id="guestBtn" class="w-full text-center text-sm text-teal-600 dark:text-teal-400 hover:underline mt-2">Try as Guest</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="loginFrame" class="w-full max-w-md mx-auto hidden fade-in">
+    <div class="auth-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
+      <h2 class="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-white">Login</h2>
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label for="loginUsername" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Username</label>
+          <input type="text" id="loginUsername" class="w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white" required>
+        </div>
+        <div>
+          <label for="loginPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+          <input type="password" id="loginPassword" class="w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white" required>
+        </div>
+        <div id="loginError" class="hidden text-sm text-red-500 text-center"></div>
+        <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-semibold transition-transform transform hover:scale-105">Enter</button>
+      </form>
+      <button id="backToStartFromLogin" class="mt-4 w-full text-center text-sm text-teal-600 dark:text-teal-400 hover:underline">Back to Start</button>
+    </div>
+  </div>
+
+  <div id="registerFrame" class="w-full max-w-md mx-auto hidden fade-in">
+    <div class="auth-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
+      <h2 class="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-white">Register</h2>
+      <form id="registerForm" class="space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+          <input type="text" id="registerFirstName" placeholder="First Name" class="w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white" required>
+          <input type="text" id="registerLastName" placeholder="Last Name" class="w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white" required>
+        </div>
+        <input type="text" id="registerUsername" placeholder="Username" class="w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white" required>
+        <div id="usernameError" class="hidden text-sm text-red-500"></div>
+        <input type="password" id="registerPassword" placeholder="Password" class="w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white" required>
+        <p class="text-xs text-gray-500 dark:text-gray-400">8+ characters, with numbers & special characters.</p>
+        <input type="password" id="registerConfirmPassword" placeholder="Confirm Password" class="w-full py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white" required>
+        <div id="passwordError" class="hidden text-sm text-red-500"></div>
+        <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-semibold transition-transform transform hover:scale-105">Register</button>
+      </form>
+      <button id="backToStartFromRegister" class="mt-4 w-full text-center text-sm text-teal-600 dark:text-teal-400 hover:underline">Back to Start</button>
+    </div>
+  </div>
+
+  <div id="habitCollectionFrame" class="w-full max-w-2xl mx-auto hidden fade-in">
+    <div class="main-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
+      <h2 class="text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white">Let's Set Your Habits</h2>
+      <p class="text-center text-gray-600 dark:text-gray-400 mb-8">Which habits would you like to form or improve? We'll suggest more later!</p>
+      <div id="habitList" class="space-y-3 mb-6 max-h-60 overflow-y-auto no-scrollbar">
+      </div>
+      <div class="flex items-center gap-4 mb-8">
+        <input type="text" id="customHabitInput" placeholder="Add a custom habit..." class="flex-grow py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white">
+        <button id="addCustomHabitBtn" class="btn-primary text-white py-2 px-6 rounded-lg font-semibold transition-transform transform hover:scale-105">Add</button>
+      </div>
+      <button id="saveHabitsBtn" class="w-full btn-primary text-white py-3 rounded-lg font-semibold transition-transform transform hover:scale-105">Save Habits & Continue</button>
+    </div>
+  </div>
+
+  <div id="habitFrame" class="w-full max-w-4xl mx-auto hidden fade-in">
+    <div class="main-container p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
+      <div class="flex justify-between items-center mb-8">
+        <div>
+          <h1 id="welcomeMessage" class="text-3xl font-bold text-gray-900 dark:text-white">Habit Dashboard</h1>
+          <p class="text-gray-600 dark:text-gray-400">Keep up the great work!</p>
+        </div>
+        <button id="logoutBtn" class="text-sm text-teal-600 dark:text-teal-400 hover:underline">Logout</button>
+      </div>
+
+      <div class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Today's Habits</h2>
+        <div id="dailyHabitList" class="space-y-3 max-h-72 overflow-y-auto no-scrollbar pr-2"></div>
+      </div>
+
+      <div id="recommendationSection" class="mb-8 hidden">
+        <h2 id="recommendationTitle" class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Suggestions for You</h2>
+        <div id="recommendationList" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        </div>
+      </div>
+
+      <div class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Your Goals</h2>
+        <div id="goalList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+
+      <div id="quoteContainer" class="hidden bg-teal-50 dark:bg-teal-900/20 p-4 rounded-lg mb-6 text-center italic">
+        <p id="quoteText" class="text-teal-800 dark:text-teal-200"></p>
+        <p id="quoteAuthor" class="text-sm text-teal-600 dark:text-teal-400 mt-1"></p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <button id="habitConfigBtn" class="flex-1 bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 px-4 rounded-lg font-semibold border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-transform transform hover:scale-105 shadow-sm">
+          <i class="fas fa-cog mr-2"></i>Configure Habits
+        </button>
+        <button id="goalConfigBtn" class="flex-1 bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 px-4 rounded-lg font-semibold border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-transform transform hover:scale-105 shadow-sm">
+          <i class="fas fa-bullseye mr-2"></i>Set Goals
+        </button>
+        <button id="routineConfigBtn" class="flex-1 bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 px-4 rounded-lg font-semibold border">
+          <i class="fas fa-stream mr-2"></i>Manage Routines
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="routineConfigFrame" class="w-full max-w-3xl mx-auto hidden fade-in">
+    <div class="main-container p-8 rounded-2xl shadow-xl">
+      <h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Manage Routines</h2>
+      <div id="routineListContainer" class="space-y-6 mb-6 max-h-80 overflow-y-auto no-scrollbar pr-2">
+      </div>
+      <div class="flex items-center gap-4 mb-8 pt-4 border-t border-gray-200 dark:border-gray-700">
+        <input type="text" id="newRoutineInput" placeholder="Create new routine (e.g., Morning Routine)..." class="flex-grow py-2 px-4 border rounded-lg dark:bg-gray-800">
+        <button id="addNewRoutineBtn" class="btn-primary text-white py-2 px-6 rounded-lg font-semibold">Create</button>
+      </div>
+      <button id="backToDashboardFromRoutines" class="w-full bg-white dark:bg-gray-800 py-3 rounded-lg font-semibold border">Back to Dashboard</button>
+    </div>
+  </div>
+
+  <div id="habitConfigFrame" class="w-full max-w-2xl mx-auto hidden fade-in">
+    <div class="main-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
+      <h2 class="text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white">Habit Configuration</h2>
+      <p class="text-center text-gray-600 dark:text-gray-400 mb-8">Add, remove, or edit your habits.</p>
+      <div id="configHabitList" class="space-y-3 mb-6 max-h-60 overflow-y-auto no-scrollbar"></div>
+      <div class="flex items-center gap-4 mb-8">
+        <input type="text" id="newHabitInput" placeholder="Add a new habit..." class="flex-grow py-2 px-4 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-teal-500 dark:bg-gray-800 dark:text-white">
+        <button id="addNewHabitBtn" class="btn-primary text-white py-2 px-6 rounded-lg font-semibold transition-transform transform hover:scale-105">Add</button>
+      </div>
+      <button id="backToDashboardBtn" class="w-full bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 px-4 rounded-lg font-semibold border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-transform transform hover:scale-105 shadow-sm">Back to Dashboard</button>
+    </div>
+  </div>
+
+  <div id="goalConfigFrame" class="w-full max-w-2xl mx-auto hidden fade-in">
+    <div class="main-container p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
+      <h2 class="text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white">Define Your Goals</h2>
+      <p class="text-center text-gray-600 dark:text-gray-400 mb-8">Set a target for one of your habits.</p>
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">1. Choose a habit to set a goal for:</label>
+        <div id="goalHabitSelection" class="space-y-2 max-h-40 overflow-y-auto no-scrollbar pr-2"></div>
+      </div>
+      <div class="mb-8">
+        <label for="goalTimelineSlider" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">2. How many days in a row? <span id="goalTimelineValue" class="font-bold text-teal-600 dark:text-teal-400">7 days</span></label>
+        <input type="range" id="goalTimelineSlider" min="2" max="30" value="7" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-teal-500">
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <button id="saveGoalBtn" class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold transition-transform transform hover:scale-105">Set Goal</button>
+        <button id="backToDashboardFromGoalBtn" class="flex-1 bg-white dark:bg-gray-800 text-gray-800 dark:text-white py-3 rounded-lg font-semibold border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-transform transform hover:scale-105">Back to Dashboard</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="notificationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 max-w-sm w-full text-center fade-in">
+      <div id="modalIconContainer" class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/30 mb-4">
+        <i id="modalIcon" class="fas fa-check-circle text-4xl text-green-500"></i>
+      </div>
+      <h3 id="modalTitle" class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Success!</h3>
+      <p id="modalMessage" class="text-gray-600 dark:text-gray-400 mb-6">Your action was completed successfully.</p>
+      <button id="modalCloseBtn" class="w-full btn-primary text-white py-2 rounded-lg font-semibold">Close</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    let userDatabase = JSON.parse(localStorage.getItem('userDatabase')) || [];
+    let currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || null;
+    let currentSessionData = null;
+
+
+    const frames = {
+      start: document.getElementById('startFrame'),
+      login: document.getElementById('loginFrame'),
+      register: document.getElementById('registerFrame'),
+      habitCollection: document.getElementById('habitCollectionFrame'),
+      habit: document.getElementById('habitFrame'),
+      habitConfig: document.getElementById('habitConfigFrame'),
+      goalConfig: document.getElementById('goalConfigFrame'),
+      routineConfig: document.getElementById('routineConfigFrame')
+    };
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const notificationModal = document.getElementById('notificationModal');
+
+
+    function showFrame(frameId) {
+      Object.values(frames).forEach(frame => frame && frame.classList.add('hidden'));
+      if (frames[frameId]) frames[frameId].classList.remove('hidden');
+    }
+
+
+    function init() {
+      if (currentUser) {
+        const userData = userDatabase.find(u => u.username === currentUser.username);
+        currentSessionData = userData;
+        if (userData && userData.habits && userData.habits.length > 0) {
+          renderApp(userData);
+          showFrame('habit');
+        } else {
+          populateInitialHabitList();
+          showFrame('habitCollection');
+        }
+      } else {
+        showFrame('start');
+      }
+    }
+
+    // --- Event Listeners ---
+    document.getElementById('loginBtn').addEventListener('click', () => showFrame('login'));
+    document.getElementById('registerBtn').addEventListener('click', () => showFrame('register'));
+    document.getElementById('guestBtn').addEventListener('click', startGuestSession);
+    document.getElementById('backToStartFromLogin').addEventListener('click', () => { showFrame('start'); loginForm.reset(); });
+    document.getElementById('backToStartFromRegister').addEventListener('click', () => { showFrame('start'); registerForm.reset(); });
+    document.getElementById('backToDashboardBtn').addEventListener('click', () => {
+      renderApp(getCurrentUserData());
+      showFrame('habit');
+    });
+    document.getElementById('backToDashboardBtn').addEventListener('click', navigateToDashboard);
+    document.getElementById('backToDashboardFromGoalBtn').addEventListener('click', navigateToDashboard);
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+    document.getElementById('habitConfigBtn').addEventListener('click', () => {
+      renderHabitConfig(currentSessionData.habits);
+      showFrame('habitConfig');
+    });
+    document.getElementById('goalConfigBtn').addEventListener('click', () => { renderGoalConfig(getCurrentUserData().habits, getCurrentUserData().goals); showFrame('goalConfig'); });
+    document.getElementById('modalCloseBtn').addEventListener('click', () => notificationModal.classList.add('hidden'));
+    document.getElementById('routineConfigBtn').addEventListener('click', () => { renderRoutineConfig(); showFrame('routineConfig'); });
+    document.getElementById('backToDashboardFromRoutines').addEventListener('click', navigateToDashboard);
+
+
+    registerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('registerUsername').value.trim();
+      const password = document.getElementById('registerPassword').value;
+
+      const newUser = {
+        firstName: document.getElementById('registerFirstName').value.trim(),
+        lastName: document.getElementById('registerLastName').value.trim(),
+        username: username,
+        password: password,
+        habits: [],
+        goals: [],
+        routines: []
+      };
+
+      userDatabase.push(newUser);
+      saveDatabase();
+      alert(`Registration successful, ${newUser.firstName}! Please login.`);
+      showFrame('login');
+      registerForm.reset();
+    });
+
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('loginUsername').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      const user = userDatabase.find(u => u.username === username && u.password === password);
+
+      if (user) {
+        currentUser = user;
+        currentSessionData = user;
+        sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+        init();
+      } else {
+        alert("Invalid username or password.");
+      }
+    });
+
+    function logout() {
+      currentUser = null;
+      sessionStorage.removeItem('currentUser');
+      const logoutBtn = document.getElementById('logoutBtn');
+      logoutBtn.textContent = 'Logout';
+      logoutBtn.onclick = logout;
+      showFrame('start');
+    }
+
+
+    function startGuestSession() {
+      const shuffled = categorizedHabits.sort(() => 0.5 - Math.random());
+      const guestHabits = shuffled.slice(0, 4).map(habit => ({
+        id: `guest-${crypto.randomUUID()}`,
+        name: habit.name,
+        history: {},
+        streak: 0
+      }));
+
+      const guestData = {
+        firstName: "Guest",
+        habits: guestHabits,
+        goals: []
+      };
+      currentSessionData = guestData;
+      renderApp(guestData, true);
+      showFrame('habit');
+    }
+
+
+    const categorizedHabits = [
+      { name: "Meditate", category: "Mindfulness" },
+      { name: "Write in a journal", category: "Mindfulness" },
+      { name: "Practice gratitude", category: "Mindfulness" },
+      { name: "Exercise for 30 minutes", category: "Health" },
+      { name: "Drink 8 glasses of water", category: "Health" },
+      { name: "Stretch for 10 minutes", category: "Health" },
+      { name: "Read 10 pages", category: "Learning" },
+      { name: "Practice a skill", category: "Learning" },
+      { name: "Learn a new word", category: "Learning" },
+      { name: "Plan your day", category: "Productivity" },
+      { name: "Tidy up your workspace", category: "Productivity" },
+      { name: "No social media for 1 hour", category: "Productivity" },
+    ];
+    const motivationalQuotes = [
+      { text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
+      { text: "We are what we repeatedly do. Excellence, then, is not an act, but a habit.", author: "Aristotle" },
+      { text: "Your future is created by what you do today, not tomorrow.", author: "Robert Kiyosaki" }
+    ];
+
+
+    function populateInitialHabitList() {
+      const habitListContainer = document.getElementById('habitList');
+      habitListContainer.innerHTML = '';
+      const shuffled = categorizedHabits.sort(() => 0.5 - Math.random());
+      const randomInitialHabits = shuffled.slice(0, 6);
+
+      randomInitialHabits.forEach(habit => {
+        habitListContainer.innerHTML += `<label class="flex items-center bg-gray-50 dark:bg-gray-800 p-3 rounded-lg hover:bg-teal-50 dark:hover:bg-gray-700 cursor-pointer"><input type="checkbox" value="${habit.name}" class="h-5 w-5 rounded border-gray-300 text-teal-600 focus:ring-teal-500"><span class="ml-3 text-gray-700 dark:text-gray-300">${habit.name}</span></label>`;
+      });
+    }
+
+    document.getElementById('addCustomHabitBtn').addEventListener('click', () => {
+      const customHabitInput = document.getElementById('customHabitInput');
+      const habitName = customHabitInput.value.trim();
+      if (habitName) {
+        document.getElementById('habitList').innerHTML += `<label class="flex items-center bg-teal-50 dark:bg-gray-800 p-3 rounded-lg hover:bg-teal-100 dark:hover:bg-gray-700 cursor-pointer"><input type="checkbox" value="${habitName}" checked class="h-5 w-5 rounded border-gray-300 text-teal-600 focus:ring-teal-500"><span class="ml-3 text-gray-700 dark:text-gray-300">${habitName}</span></label>`;
+        customHabitInput.value = '';
+      }
+    });
+
+    document.getElementById('saveHabitsBtn').addEventListener('click', () => {
+      const selectedHabits = Array.from(document.querySelectorAll('#habitList input[type="checkbox"]:checked')).map(cb => cb.value);
+      let userData = getCurrentUserData();
+      userData.habits = selectedHabits.map(name => ({ id: crypto.randomUUID(), name, why: "", history: {}, streak: 0 }));
+      updateUserData(userData);
+      init();
+    });
+
+    document.getElementById('addNewHabitBtn').addEventListener('click', () => {
+      const newHabitInput = document.getElementById('newHabitInput');
+      const habitName = newHabitInput.value.trim();
+      if (habitName) {
+        let userData = getCurrentUserData();
+        userData.habits.push({ id: crypto.randomUUID(), name: habitName, why: "", history: {}, streak: 0 });
+        updateUserData(userData);
+        renderHabitConfig(userData.habits);daily
+        newHabitInput.value = '';
+      }
+    });
+
+    document.getElementById('goalTimelineSlider').addEventListener('input', (e) => {
+      document.getElementById('goalTimelineValue').textContent = `${e.target.value} days`;
+    });
+
+    document.getElementById('saveGoalBtn').addEventListener('click', () => {
+      const selectedHabitRadio = document.querySelector('#goalHabitSelection input[type="radio"]:checked');
+      if (!selectedHabitRadio) {
+        showNotification("No Habit Selected", "Please choose a habit to set a goal for.", "error");
+        return;
+      }
+      const habitId = selectedHabitRadio.value;
+      const habitName = selectedHabitRadio.dataset.name;
+      const timeline = document.getElementById('goalTimelineSlider').value;
+
+      let userData = getCurrentUserData();
+      userData.goals.push({ id: crypto.randomUUID(), habitId: habitId, habitName: habitName, target: parseInt(timeline), createdAt: new Date().toISOString() });
+      updateUserData(userData);
+
+      showNotification("Goal Set!", `You've set a ${timeline}-day goal for ${habitName}.`, "success");
+      renderApp(userData);
+      showFrame('habit');
+    });
+
+    //Render Functions
+    function renderApp(userData, isGuest = false) {
+      document.getElementById('welcomeMessage').textContent = `Welcome, ${userData.firstName}!`;
+
+      const quoteContainer = document.getElementById('quoteContainer');
+      const recommendationSection = document.getElementById('recommendationSection');
+      const goalConfigBtn = document.getElementById('goalConfigBtn');
+      const habitConfigBtn = document.getElementById('habitConfigBtn');
+      const routineConfigBtn = document.getElementById('routineConfigBtn');
+
+      if (isGuest) {
+        const randomQuote = motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)];
+        document.getElementById('quoteText').textContent = `"${randomQuote.text}"`;
+        document.getElementById('quoteAuthor').textContent = `– ${randomQuote.author}`;
+        quoteContainer.classList.remove('hidden');
+
+        renderGuestRecommendations();
+        if (document.getElementById('goalList')) document.getElementById('goalList').innerHTML = '<p class="text-sm text-gray-500">Register to set goals.</p>';
+
+        if (goalConfigBtn) goalConfigBtn.style.display = 'none';
+        if (routineConfigBtn) routineConfigBtn.style.display = 'none';
+
+      } else {
+        quoteContainer.classList.add('hidden');
+        if (goalConfigBtn) goalConfigBtn.style.display = 'flex';
+        if (habitConfigBtn) habitConfigBtn.style.display = 'flex';
+        if (routineConfigBtn) routineConfigBtn.style.display = 'flex';
+
+        renderPersonalizedRecommendations(userData);
+      }
+
+      renderHabitDashboard(userData, isGuest);
+    }
+
+
+    function renderHabitDashboard(userData, isGuest = false) {
+      const logoutBtn = document.getElementById('logoutBtn');
+      if (isGuest) {
+        logoutBtn.textContent = 'Exit Guest Mode';
+        logoutBtn.onclick = () => window.location.reload();
+      } else {
+        logoutBtn.textContent = 'Logout';
+        logoutBtn.onclick = logout;
+      }
+
+      const container = document.getElementById('dailyHabitList');
+      container.innerHTML = '';
+
+      if (!userData.habits || userData.habits.length === 0) {
+        container.innerHTML = `<p class="text-gray-500">No habits yet. Go to 'Configure Habits' to add some!</p>`;
+        return;
+      }
+
+
+      const assignedHabitIds = new Set(userData.routines?.flatMap(r => r.habitIds) || []);
+
+      (userData.routines || []).forEach(routine => {
+        const habitElements = routine.habitIds.map(hid => {
+          const habit = userData.habits.find(h => h.id === hid);
+          return habit ? createHabitElement(habit) : '';
+        }).join('');
+
+        if (habitElements) {
+          const routineSection = document.createElement('div');
+          routineSection.className = "mb-6";
+          routineSection.innerHTML = `
+                <h3 class="text-xl font-semibold mb-3 text-teal-600 dark:text-teal-400">${routine.name}</h3>
+                <div class="space-y-3">${habitElements}</div>
+            `;
+          container.appendChild(routineSection);
+        }
+      });
+
+      const unassignedHabits = userData.habits.filter(h => !assignedHabitIds.has(h.id));
+      if (unassignedHabits.length > 0) {
+        const unassignedSection = document.createElement('div');
+        const title = (userData.routines && userData.routines.length > 0)
+          ? `<h3 class="text-xl font-semibold my-3 pt-4 border-t border-gray-200 dark:border-gray-700">Individual Habits</h3>`
+          : '';
+        unassignedSection.innerHTML = `
+            ${title}
+            <div class="space-y-3">${unassignedHabits.map(createHabitElement).join('')}</div>
+        `;
+        container.appendChild(unassignedSection);
+      }
+
+      addDashboardEventListeners(isGuest ? userData : null);
+    }
+
+    function renderHabitConfig(habits) {
+      const listContainer = document.getElementById('configHabitList');
+      listContainer.innerHTML = ''; // Clear the list first
+
+      if (habits && habits.length > 0) {
+        habits.forEach(habit => {
+          const habitDiv = document.createElement('div');
+          habitDiv.className = "bg-gray-100 dark:bg-gray-800 p-3 rounded-lg";
+
+          habitDiv.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <span class="font-semibold">${habit.name}</span>
+                    <button class="remove-habit-btn text-red-500 hover:text-red-700" data-habit-id="${habit.id}">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+                <input
+                    type="text"
+                    data-habit-id="${habit.id}"
+                    class="why-input w-full text-sm mt-2 p-2 border rounded bg-white dark:bg-gray-700"
+                    value="${habit.why || ''}"
+                    placeholder="My 'Why' (e.g., to feel more focused)...">
+            `;
+
+          listContainer.appendChild(habitDiv);
+        });
+      } else {
+        listContainer.innerHTML = `<p class="text-gray-500 text-center">No habits added yet.</p>`;
+      }
+      addHabitConfigEventListeners();
+    }
+
+    function renderRoutineConfig() {
+      const userData = getCurrentUserData();
+      const container = document.getElementById('routineListContainer');
+      container.innerHTML = '';
+
+      (userData.routines || []).forEach(routine => {
+        const routineEl = document.createElement('div');
+        routineEl.className = 'bg-gray-100 dark:bg-gray-800 p-4 rounded-lg';
+
+        let assignedHabitsHtml = routine.habitIds.map(habitId => {
+          const habit = userData.habits.find(h => h.id === habitId);
+          return habit ? `<li class="flex justify-between items-center text-sm py-1"><span>${habit.name}</span><button class="remove-habit-from-routine-btn text-red-400 text-xs" data-routine-id="${routine.id}" data-habit-id="${habit.id}">Remove</button></li>` : '';
+        }).join('');
+
+        const allUserHabitIds = new Set(userData.routines.flatMap(r => r.habitIds));
+        const availableHabits = userData.habits.filter(h => !allUserHabitIds.has(h.id));
+        let optionsHtml = availableHabits.map(h => `<option value="${h.id}">${h.name}</option>`).join('');
+
+        routineEl.innerHTML = `
+            <div class="flex justify-between items-center mb-2">
+                <h4 class="text-lg font-bold text-teal-600 dark:text-teal-400">${routine.name}</h4>
+                <button class="remove-routine-btn text-red-500 hover:text-red-700" data-routine-id="${routine.id}"><i class="fas fa-trash"></i></button>
+            </div>
+            <ul class="list-disc list-inside ml-4 mb-3">${assignedHabitsHtml || '<li class="text-sm text-gray-500">No habits assigned.</li>'}</ul>
+            ${availableHabits.length > 0 ? `
+            <div class="flex items-center gap-2 mt-2 border-t pt-3">
+                <select class="add-habit-to-routine-select flex-grow py-1 px-2 border rounded dark:bg-gray-700">
+                    <option value="">-- Add an available habit --</option>
+                    ${optionsHtml}
+                </select>
+                <button class="add-habit-to-routine-btn btn-primary text-white text-sm py-1 px-3 rounded" data-routine-id="${routine.id}">Add</button>
+            </div>` : ''}
+        `;
+        container.appendChild(routineEl);
+      });
+      addRoutineConfigEventListeners();
+    }
+
+    function renderPersonalizedRecommendations(userData) {
+      const recommendationSection = document.getElementById('recommendationSection');
+      const recommendationList = document.getElementById('recommendationList');
+      const recommendationTitle = document.getElementById('recommendationTitle');
+
+      recommendationList.innerHTML = '';
+      recommendationTitle.textContent = "Recommended for You";
+
+      const userHabitNames = userData.habits.map(h => h.name);
+      const userCategories = userData.habits.map(h => h.category);
+
+      let recommendations = [];
+
+      if (userCategories.length > 0) {
+        const categoryCounts = userCategories.reduce((acc, cat) => {
+          if (cat) acc[cat] = (acc[cat] || 0) + 1;
+          return acc;
+        }, {});
+
+        if (Object.keys(categoryCounts).length > 0) {
+          const topCategory = Object.keys(categoryCounts).reduce((a, b) => categoryCounts[a] > categoryCounts[b] ? a : b);
+          recommendations = categorizedHabits.filter(h =>
+            h.category === topCategory && !userHabitNames.includes(h.name)
+          );
+        }
+      }
+      if (recommendations.length === 0) {
+        recommendations = categorizedHabits.filter(h => !userHabitNames.includes(h.name));
+      }
+      if (recommendations.length > 0) {
+        recommendations.slice(0, 2).forEach(habit => {
+          const card = `
+            <div class="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg flex items-center justify-between shadow-sm hover:bg-teal-50 dark:hover:bg-gray-700/50">
+              <div>
+                <p class="font-semibold text-gray-800 dark:text-gray-200">${habit.name}</p>
+                <p class="text-xs text-teal-500 dark:text-teal-400">${habit.category}</p>
+              </div>
+              <button data-habit-name="${habit.name}" class="add-recommendation-btn bg-teal-100 text-teal-700 dark:bg-teal-900/50 dark:text-teal-300 text-sm font-semibold py-1 px-3 rounded-full hover:bg-teal-200 dark:hover:bg-teal-900">Add</button>
+            </div>`;
+          recommendationList.innerHTML += card;
+        });
+        addRecommendationEventListeners();
+        recommendationSection.classList.remove('hidden');
+      } else {
+        recommendationSection.classList.add('hidden');
+      }
+    }
+
+    function renderGoalConfig(habits, goals) {
+      const selectionContainer = document.getElementById('goalHabitSelection');
+      selectionContainer.innerHTML = '';
+      const goalHabitIds = goals ? goals.map(g => g.habitId) : [];
+      if (habits && habits.length > 0) {
+        habits.forEach(habit => {
+          const hasGoal = goalHabitIds.includes(habit.id);
+          selectionContainer.innerHTML += `<label class="flex items-center bg-gray-50 dark:bg-gray-800 p-3 rounded-lg ${hasGoal ? 'opacity-50 cursor-not-allowed' : 'hover:bg-teal-50 dark:hover:bg-gray-700 cursor-pointer'}"><input type="radio" name="goalHabit" value="${habit.id}" data-name="${habit.name}" class="h-5 w-5 text-teal-600 focus:ring-teal-500" ${hasGoal ? 'disabled' : ''}><span class="ml-3 text-gray-700 dark:text-gray-300">${habit.name} ${hasGoal ? '(Goal already set)' : ''}</span></label>`;
+        });
+      } else {
+        selectionContainer.innerHTML = `<p class="text-gray-500 text-center">You need to add habits before you can set goals.</p>`;
+      }
+    }
+
+    function renderGuestRecommendations() {
+      const list = document.getElementById('recommendationList');
+      document.getElementById('recommendationTitle').textContent = "Explore Habits";
+      list.innerHTML = categorizedHabits.sort(() => 0.5 - Math.random()).slice(0, 3)
+        .map(habit => `<div class="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg text-sm">${habit.name}</div>`).join('');
+      document.getElementById('recommendationSection').classList.remove('hidden');
+    }
+
+    //Add Functions
+    function addDashboardEventListeners(guestData = null) {
+      document.querySelectorAll('.habit-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', (e) => {
+          if (guestData) {
+            // Handle guest data in memory
+            const habit = guestData.habits.find(h => h.id === e.target.dataset.habitId);
+            const today = getTodayString();
+            if (e.target.checked) { habit.history[today] = true; } else { delete habit.history[today]; }
+            renderApp(guestData, true);
+          } else {
+            toggleHabitCompletion(e.target.dataset.habitId, e.target.checked);
+          }
+        });
+      });
+
+      document.querySelectorAll('.remove-goal-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+          let userData = getCurrentUserData();
+          userData.goals = userData.goals.filter(g => g.id !== e.target.dataset.goalId);
+          updateUserData(userData);
+          renderApp(userData);
+        });
+      });
+    }
+
+    function addHabitConfigEventListeners() {
+      document.querySelectorAll('.remove-habit-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+          let userData = getCurrentUserData();
+          userData.habits = userData.habits.filter(h => h.id !== e.currentTarget.dataset.habitId);
+          updateUserData(userData);
+          renderHabitConfig(userData.habits);
+        });
+      });
+      document.querySelectorAll('.why-input').forEach(input => {
+        input.addEventListener('blur', (e) => {
+          let userData = getCurrentUserData();
+          const habit = userData.habits.find(h => h.id === e.target.dataset.habitId);
+          if (habit) {
+            habit.why = e.target.value.trim();
+            updateUserData(userData);
+          }
+        });
+      });
+    }
+
+    function addRoutineConfigEventListeners() {
+      document.getElementById('addNewRoutineBtn').onclick = () => {
+        const newRoutineInput = document.getElementById('newRoutineInput');
+        const routineName = newRoutineInput.value.trim();
+        if(routineName) {
+          const userData = getCurrentUserData();
+          if (!userData.routines) userData.routines = [];
+          userData.routines.push({ id: crypto.randomUUID(), name: routineName, habitIds: [] });
+          updateUserData(userData);
+          renderRoutineConfig();
+          newRoutineInput.value = '';
+        }
+      };
+
+      document.querySelectorAll('.remove-routine-btn').forEach(btn => {
+        btn.onclick = (e) => {
+          const userData = getCurrentUserData();
+          userData.routines = userData.routines.filter(r => r.id !== e.currentTarget.dataset.routineId);
+          updateUserData(userData);
+          renderRoutineConfig();
+        }
+      });
+
+      document.querySelectorAll('.add-habit-to-routine-btn').forEach(btn => {
+        btn.onclick = (e) => {
+          const routineId = e.currentTarget.dataset.routineId;
+          const selectEl = e.currentTarget.previousElementSibling;
+          const habitId = selectEl.value;
+          if (habitId) {
+            const userData = getCurrentUserData();
+            const routine = userData.routines.find(r => r.id === routineId);
+            if (routine && !routine.habitIds.includes(habitId)) {
+              routine.habitIds.push(habitId);
+              updateUserData(userData);
+              renderRoutineConfig();
+            }
+          }
+        }
+      });
+
+      document.querySelectorAll('.remove-habit-from-routine-btn').forEach(btn => {
+        btn.onclick = (e) => {
+          const { routineId, habitId } = e.currentTarget.dataset;
+          const userData = getCurrentUserData();
+          const routine = userData.routines.find(r => r.id === routineId);
+          if(routine) {
+            routine.habitIds = routine.habitIds.filter(id => id !== habitId);
+            updateUserData(userData);
+            renderRoutineConfig();
+          }
+        }
+      });
+    }
+
+    function addRecommendationEventListeners() {
+      document.querySelectorAll('.add-recommendation-btn').forEach(button => {
+        button.onclick = (e) => {
+          const habitName = e.target.dataset.habitName;
+          let userData = getCurrentUserData();
+
+          if (!userData.habits.some(h => h.name === habitName)) {
+            userData.habits.push({ id: crypto.randomUUID(), name: habitName, history: {}, streak: 0 });
+            updateUserData(userData);
+            renderApp(userData);
+          }
+        };
+      });
+    }
+
+    //Helper Functions
+    function createHabitElement(habit) {
+      if (!habit) return '';
+
+      const today = getTodayString();
+      const isCompleted = habit.history && habit.history[today];
+      const streak = calculateStreak(habit.history);
+
+      return `
+        <div class="flex flex-col bg-gray-50 dark:bg-gray-800 p-3 rounded-lg shadow-sm">
+            <div class="flex items-center justify-between">
+                <label class="flex items-center cursor-pointer flex-grow">
+                    <input type="checkbox" data-habit-id="${habit.id}" class="habit-checkbox h-6 w-6 rounded border-gray-300 text-teal-600" ${isCompleted ? 'checked' : ''}>
+                    <span class="ml-4 text-lg">${habit.name}</span>
+                </label>
+                ${streak > 0 ? `<span class="text-sm font-semibold text-orange-500"><i class="fas fa-fire mr-1"></i>${streak}d</span>` : ''}
+            </div>
+            ${habit.why ? `<p class="text-xs text-gray-500 dark:text-gray-400 mt-1 pl-10 italic">Why: ${habit.why}</p>` : ''}
+        </div>
+    `;
+    }
+
+    function navigateToDashboard() {
+      if (currentSessionData) {
+        //Ändern um Guestmode zu funktionieren lassen. Change this value to false when working with the personalization feature
+        const isGuest = false;
+
+        renderApp(currentSessionData, isGuest);
+        showFrame('habit');
+      } else {
+        showFrame('start');
+      }
+    }
+
+    function getTodayString() { return new Date().toISOString().split('T')[0]; }
+
+    // --- Data Logic Helpers ---
+    function toggleHabitCompletion(habitId, isCompleted) {
+      let userData = getCurrentUserData();
+      const habit = userData.habits.find(h => h.id === habitId);
+      if (!habit) return;
+
+      const today = getTodayString();
+      if (isCompleted) {
+        habit.history[today] = true;
+      } else {
+        delete habit.history[today];
+      }
+
+      const streak = calculateStreak(habit.history);
+
+      if (isCompleted && habit.why && streak > 1) {
+        showNotification(
+          `Day ${streak} Complete!`,
+          `Great work on your goal: "${habit.why}"`
+        );
+      }
+
+      updateUserData(userData);
+      renderApp(userData);
+    }
+
+    function calculateStreak(history) {
+      if (!history) return 0;
+      let streak = 0;
+      let currentDate = new Date();
+      if (!history[currentDate.toISOString().split('T')[0]]) {
+        currentDate.setDate(currentDate.getDate() - 1);
+      }
+      while (history[currentDate.toISOString().split('T')[0]]) {
+        streak++;
+        currentDate.setDate(currentDate.getDate() - 1);
+      }
+      return streak;
+    }
+
+    function handleGoalCompletion(goalId) {
+      let userData = getCurrentUserData();
+      const goal = userData.goals.find(g => g.id === goalId);
+      if (!goal) return;
+
+      showNotification("Goal Achieved!", `Congratulations! You completed your ${goal.target}-day goal for "${goal.habitName}"!`, "success");
+      userData.goals = userData.goals.filter(g => g.id !== goalId);
+      updateUserData(userData);
+      renderApp(userData);
+    }
+
+    function showNotification(title, message, type = 'success') {
+      const modalTitle = document.getElementById('modalTitle');
+      const modalMessage = document.getElementById('modalMessage');
+      const modalIcon = document.getElementById('modalIcon');
+      const modalIconContainer = document.getElementById('modalIconContainer');
+
+      modalTitle.textContent = title;
+      modalMessage.textContent = message;
+      modalIconContainer.className = 'mx-auto flex items-center justify-center h-16 w-16 rounded-full mb-4';
+      modalIcon.className = 'text-4xl';
+
+      if (type === 'success') {
+        modalIconContainer.classList.add('bg-green-100', 'dark:bg-green-900/30');
+        modalIcon.classList.add('fas', 'fa-check-circle', 'text-green-500');
+      } else {
+        modalIconContainer.classList.add('bg-red-100', 'dark:bg-red-900/30');
+        modalIcon.classList.add('fas', 'fa-exclamation-triangle', 'text-red-500');
+      }
+      notificationModal.classList.remove('hidden');
+    }
+
+    //Database Helpers
+    function saveDatabase() {
+      localStorage.setItem('userDatabase', JSON.stringify(userDatabase));
+    }
+
+    function getCurrentUserData() {
+      return userDatabase.find(u => u.username === currentUser.username);
+    }
+
+    function updateUserData(updatedData) {
+      const userIndex = userDatabase.findIndex(u => u.username === updatedData.username);
+      if (userIndex !== -1) {
+        userDatabase[userIndex] = updatedData;
+        saveDatabase();
+      }
+    }
+
+    init();
+  });
+</script>
+</body>
+</html> 
